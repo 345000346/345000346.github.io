@@ -1,0 +1,94 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Github Actions + Hugo + Github Pages搭建博客 | 我的个人小站</title><meta property="og:title" content="Github Actions + Hugo + Github Pages搭建博客 - 我的个人小站"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-01-01T13:14:18+08:00"><meta property="article:modified_time" content="2020-01-01T13:14:18+08:00"><meta name=Keywords content="日常,想法,Android,Windows,手机,电脑"><meta name=description content="Github Actions + Hugo + Github Pages搭建博客"><meta name=author content="owovo"><meta property="og:url" content="https://owovo.xyz/post/GithubActions+Hugo+GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><script type=text/javascript src=//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js></script></head><body><header id=header class=clearfix><div class=container><div class=col-group><div class=site-name><a id=logo href=https://owovo.xyz>我的个人小站</a><p class=description>分享一些日常、没事无聊的瞎想、一些常用的工具等</p></div><div><nav id=nav-menu class=clearfix><a href=https://owovo.xyz>首页</a>
+<a href=https://owovo.xyz/archives.html title=文章>文章</a>
+<a href=https://owovo.xyz/categories.html title=分类>分类</a>
+<a href=https://owovo.xyz/tags.html title=标签>标签</a>
+<a href=https://owovo.xyz/ideas.html title=想法>想法</a>
+<a href=https://owovo.xyz/about.html title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><script src=/js/addaTartget.js></script><div class=res-cons><style type=text/css>.post-toc{position:fixed;margin-left:-376.5px;padding:5px 10px;font-family:Athelas,STHeiti,Microsoft Yahei,serif;font-size:12px;border:1px solid rgba(0,0,0,.07);border-radius:5px;background-color:rgba(255,255,255,.98);background-clip:padding-box;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,.125);box-shadow:1px 1px 2px rgba(0,0,0,.125);word-wrap:break-word;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:999;cursor:pointer;max-height:70%;overflow-y:auto;overflow-x:hidden}.post-toc .post-toc-title{width:100%;margin:0 auto;font-size:20px;font-weight:400;text-transform:uppercase;text-align:center}.post-toc .post-toc-content{font-size:15px}.post-toc .post-toc-content>nav>ul{margin:10px 0}.post-toc .post-toc-content ul{padding-left:20px;list-style:square;margin:.5em;line-height:1.8em}.post-toc .post-toc-content ul ul{padding-left:15px;display:none}@media print,screen and (max-width:1057px){.post-toc{display:none}}</style><div class=post-toc style=position:absolute;top:188px><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#-github-pages>一、建立 Github Pages</a></li><li><a href=#-hugo->二、建立 Hugo 文章仓库</a></li><li><a href=#-github-actions->三、编写 Github Actions 脚本</a></li><li><a href=#heading>四、准备部署</a><ul><li><a href=#1-ssh-key>1.生成提交代码用的 ssh key</a></li><li><a href=#2>2.填写密钥</a></li><li><a href=#3>3.提交代码</a></li></ul></li></ul></nav></div></div><script type=text/javascript>$(document).ready(function(){var postToc=$(".post-toc");if(postToc.length){var leftPos=$("#main").offset().left;postToc.css({"margin-left":(0-leftPos)})
+var t=postToc.offset().top-20,a={start:{position:"absolute",top:t},process:{position:"fixed",top:20},};$(window).scroll(function(){var e=$(window).scrollTop();e<t?postToc.css(a.start):postToc.css(a.process)})}})</script><article class=post><header><h1 class=post-title>Github Actions + Hugo + Github Pages搭建博客</h1></header><date class="post-meta meta-date">2020年1月1日</date><div class=post-meta><span>|</span>
+<span class=meta-category><a href=https://owovo.xyz/categories/Hugo>Hugo</a></span></div><div class=post-meta><span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
+阅读</span></span></div><div class=clear style=display:none><div class=toc-article><div class=toc-title>文章目录</div></div></div><div class=post-content id=post-content-id><h2 id=-github-pages>一、建立 Github Pages</h2><p>在你的 Github 账号里新建一个 Repository ，仓库名必须为 [你的用户名]-github.io，必须使用 master 分支，这个就是你建立 Github Pages 的 Repository.</p><h2 id=-hugo->二、建立 Hugo 文章仓库</h2><p>在你的 Github 账号里新建一个 Repository，名称什么的都随意，比如 myBlog.</p><h2 id=-github-actions->三、编写 Github Actions 脚本</h2><p>1.打开 Hugo 文章仓库中 Repository 的 Actions ，选择右边的 <code>skip this : Set up a workflow yourself</code>；</p><p>2.选择后，会出现一个 yml 文件的编辑器，里面的内容不用理会；</p><p>3.我们参考 <a href=https://github.com/peaceiris/actions-hugo>peaceiris/actions-hugo</a> 和 <a href=peaceiris/actions-gh-pages>peaceiris/actions-gh-pages</a> 项目，编写自己的 workflow；</p><p>不废话，直接上代码</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-makefile data-lang=makefile><span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> Github Pages <span style=color:#75715e>#自动化的名称
+</span><span style=color:#75715e></span><span style=color:#a6e22e>on</span><span style=color:#f92672>:</span>
+  push: <span style=color:#75715e># push 的时候触发</span>
+     branches: <span style=color:#75715e># 那些分支需要触发</span>
+      - master
+<span style=color:#a6e22e>jobs</span><span style=color:#f92672>:</span>
+  build:
+    runs-on: ubuntu-latest <span style=color:#75715e># 镜像市场</span>
+    steps:
+      - name: checkout <span style=color:#75715e># 步骤的名称</span>
+        uses: actions/checkout@master <span style=color:#75715e>#软件市场的名称</span>
+        <span style=color:#75715e># with: # 参数</span>
+         <span style=color:#75715e># submodules: true</span>
+      - name: Setup Hugo <span style=color:#75715e># 安装 Hugo</span>
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: <span style=color:#e6db74>&#39;latest&#39;</span> <span style=color:#75715e># 使用Hugo最新版</span>
+          extended: true
+      - name: Build <span style=color:#75715e># 编译</span>
+        run: hugo --minify
+      - name: Deploy <span style=color:#75715e># 部署</span>
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+         ACTIONS_DEPLOY_KEY: <span style=color:#e6db74>${</span>{ secrets.ACTIONS_DEPLOY_KEY <span style=color:#e6db74>}</span><span style=color:#f92672>}</span>
+         EXTERNAL_REPOSITORY: 你的用户名/你的用户名.github.io
+         PUBLISH_BRANCH: master
+         PUBLISH_DIR: ./public
+</code></pre></td></tr></table></div></div><p><strong>注：25 行的 你的用户名 填写你的 Github 用户名</strong></p><h2 id=heading>四、准备部署</h2><p>我们开发的项目和 Github Pages 是分开的，所以用了两个 Repository，接下来就是要在你将 Hugo文章推到 myBlog 这个 Repository 后，部署到 Github Pages.</p><p>首先我们要在你的电脑上安装 Git ，这是<a href=https://git-scm.com/>官网</a>，下载安装我就不多说了，一般直接下一步即可。</p><h3 id=1-ssh-key>1.生成提交代码用的 <em>ssh key</em></h3><p>打开 cmd ，或者 Powershell ，输入</p><pre><code>ssh-keygen -t rsa -b 4096 -C &quot;$(git config user.email)&quot; -f gh-pages -N &quot;&quot;
+# 你会得到以下这两个文件:
+#   gh-pages.pub (public key)
+#   gh-pages     (private key)
+</code></pre><p><strong>注：这两个文件可能在 <code>C:\Users\[你的电脑用户名]\.ssh</code> 下，也可能在打开的命令行目录下。</strong></p><h3 id=2>2.填写密钥</h3><p>假设 Hugo 文章的 Repository 名字是 <code>myBlog</code>，部署的项目为 <code>[你的用户名].github.io</code></p><p>打开 <code>myBlog</code> 仓库的 <code>settings</code>，再点击 <code>Secrets</code>，然后添加刚刚生成的私钥，<code>name</code> 为 <code>ACTIONS_DEPLOY_KEY</code></p><p>打开 [你的用户名].github.io，点击 Deploy keys，添加公钥，<code>Allow write access</code> 一定要勾上，否则会无法部署</p><h3 id=3>3.提交代码</h3><p>然后，你就可以提交 Hugo文章 到 myBlog 仓库，Push 成功后，打开仓库 Actions，可以查看是否自动编译成功。</p></div><script type=text/javascript>addaTarget("post-content-id");</script><div class=post-archive><h2>See Also</h2><ul class=listing><li><a href=/post/%E5%9C%A8Hugo%E6%96%87%E7%AB%A0%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%89%93%E5%BC%80%E9%93%BE%E6%8E%A5.html>在 Hugo 文章页面中使用新标签页打开链接</a></li><li><a href=/post/%E8%A7%A3%E5%86%B3about%E7%AD%89%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98.html>解决about等页面显示在文章列表中的问题</a></li><li><a href=/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html>Flash去区域限制</a></li><li><a href=/post/LEDE%E4%B8%8BSmartDNS%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html>LEDE下SmartDNS安装使用</a></li><li><a href=/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%86%E6%89%8B%E5%90%8E%E6%9C%89%E4%BA%9B%E4%BA%BA%E8%BF%98%E8%83%BD%E5%83%8F%E6%B2%A1%E4%BA%8B%E4%BA%BA%E4%B8%80%E6%A0%B7.html>为什么分手后有些人还能像没事人一样？</a></li></ul></div><div class="post-meta meta-tags"><ul class=clearfix><li><a href=https://owovo.xyz/tags/Github>Github</a></li><li><a href=https://owovo.xyz/tags/Hugo>Hugo</a></li></ul></div></article></div></div><div id=secondary><section class=widget><form id=search action=//www.google.com/search method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=搜索>
+<input type=hidden name=sitesearch value=https://owovo.xyz>
+<button type=submit class="submit icon-search"></button></form></section><section class=widget><h3 class=widget-title><a href=https://www.jinrishici.com target=_blank>今日诗词</a></h3><script src=https://sdk.jinrishici.com/v2/browser/jinrishici.js></script><div id=poem_sentence></div><br><div id=poem_info></div><script type=text/javascript>jinrishici.load(function(result){var sentence=document.querySelector("#poem_sentence")
+var info=document.querySelector("#poem_info")
+sentence.innerHTML=result.data.content
+info.innerHTML='【'+result.data.origin.dynasty+'】'+result.data.origin.author+'《'+result.data.origin.title+'》'});</script></section><section class=widget><h3 class=widget-title>最近文章</h3><ul class=widget-list><li><a href=https://owovo.xyz/post/GithubActions+Hugo+GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html title="Github Actions + Hugo + Github Pages搭建博客">Github Actions + Hugo + Github Pages搭建博客</a></li><li><a href=https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html title=Flash去区域限制>Flash去区域限制</a></li><li><a href=https://owovo.xyz/post/LEDE%E4%B8%8BSmartDNS%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html title=LEDE下SmartDNS安装使用>LEDE下SmartDNS安装使用</a></li><li><a href=https://owovo.xyz/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%86%E6%89%8B%E5%90%8E%E6%9C%89%E4%BA%9B%E4%BA%BA%E8%BF%98%E8%83%BD%E5%83%8F%E6%B2%A1%E4%BA%8B%E4%BA%BA%E4%B8%80%E6%A0%B7.html title=为什么分手后有些人还能像没事人一样？>为什么分手后有些人还能像没事人一样？</a></li><li><a href=https://owovo.xyz/post/%E6%89%B9%E9%87%8F%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E7%A9%BA%E6%A0%BC%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D.html title=批量去除文件名中的空格、批量重命名>批量去除文件名中的空格、批量重命名</a></li></ul><a href=/post.html style=color:#0789e0>查看更多</a></section><section class=widget><h3 class=widget-title>分类</h3><ul class=widget-list><li><a href=https://owovo.xyz/categories/API.html>API (1)</a></li><li><a href=https://owovo.xyz/categories/Hugo.html>Hugo (3)</a></li><li><a href=https://owovo.xyz/categories/Windows.html>Windows (2)</a></li><li><a href=https://owovo.xyz/categories/%E5%B7%A5%E5%85%B7.html>工具 (1)</a></li><li><a href=https://owovo.xyz/categories/%E6%83%85%E6%84%9F.html>情感 (2)</a></li><li><a href=https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC.html>脚本 (2)</a></li><li><a href=https://owovo.xyz/categories/%E8%B7%AF%E7%94%B1%E5%99%A8.html>路由器 (2)</a></li></ul></section><section class=widget><h3 class=widget-title>标签</h3><div class=tagcloud><a href=https://owovo.xyz/tags/API.html>API</a>
+<a href=https://owovo.xyz/tags/DNS.html>DNS</a>
+<a href=https://owovo.xyz/tags/Github.html>Github</a>
+<a href=https://owovo.xyz/tags/Hugo.html>Hugo</a>
+<a href=https://owovo.xyz/tags/Proxmox.html>Proxmox</a>
+<a href=https://owovo.xyz/tags/V2ex.html>V2ex</a>
+<a href=https://owovo.xyz/tags/Windows.html>Windows</a>
+<a href=https://owovo.xyz/tags/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D.html>今日诗词</a>
+<a href=https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7.html>工具</a>
+<a href=https://owovo.xyz/tags/%E6%83%85%E6%84%9F.html>情感</a>
+<a href=https://owovo.xyz/tags/%E7%B3%BB%E7%BB%9F.html>系统</a>
+<a href=https://owovo.xyz/tags/%E8%84%9A%E6%9C%AC.html>脚本</a>
+<a href=https://owovo.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA.html>虚拟机</a>
+<a href=https://owovo.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8.html>路由器</a>
+<a href=https://owovo.xyz/tags/%E8%BD%AF%E4%BB%B6.html>软件</a></div></section><section class=widget><section class=widget><h3 class=widget-title>我的链接</h3><ul class=widget-list><li><h4><a target=_blank href=https://weibo.com/u/1733321624 title=微博 class=icon-sina-weibo>微博</a></h4></li><li><h4><a target=_blank href=https://github.com/345000346 title=Github class=icon-github>Github</a></h4></li></ul></section></section><section class=widget></section></div></div></div></div><footer id=footer><div class=container>&copy; 2020 <a href=https://owovo.xyz>我的个人小站 By owovo</a><br>本站已稳定运行
+<b id=d style=color:#c40000></b>天 <b id=h style=color:#c40000></b>小时 <b id=m style=color:#c40000></b>分 <b id=s style=color:#c40000></b>秒
+<script>function timer(){var start=new Date("8/22/2019 00:00:00");var t=new Date()-start;var h=~~(t/1000/60/60%24);if(h<10){h="0"+h;}
+var m=~~(t/1000/60%60);if(m<10){m="0"+m;}
+var s=~~(t/1000%60);if(s<10){s="0"+s;}
+document.getElementById('d').innerHTML=~~(t/1000/60/60/24);document.getElementById('h').innerHTML=h;document.getElementById('m').innerHTML=m;document.getElementById('s').innerHTML=s;}
+timer();setInterval(timer,1000);</script><span>&#183;</span>
+Powered by <a rel="nofollow noreferer noopener" href=https://gohugo.io target=_blank>Hugo</a>.
+<a href=https://www.flysnow.org/ target=_blank>Theme</a> based on <a href=https://github.com/flysnow-org/maupassant-hugo target=_blank>maupassant</a>.</div></footer><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$']],processEscapes:true}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><a id=rocket href=#top></a><script type=text/javascript src="/js/totop.js?v=0.0.0" async></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-47934503-5','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script></body></html>
