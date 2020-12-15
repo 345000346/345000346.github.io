@@ -160,7 +160,6 @@
         <li><a href="#2添加域名解析">2.添加域名解析</a></li>
       </ul>
     </li>
-    <li><a href="#六注意事项">六、注意事项</a></li>
   </ul>
 </nav>
     </div>
@@ -262,6 +261,10 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> Github Pages <span style="color:#75715e">#自动化的名称
@@ -282,15 +285,19 @@
         with:
           hugo-version: <span style="color:#e6db74">&#39;latest&#39;</span> <span style="color:#75715e"># 使用Hugo最新版</span>
           extended: true
+
       - name: Build <span style="color:#75715e"># 编译</span>
-        run: hugo --minify
+        run: hugo
+
       - name: Deploy <span style="color:#75715e"># 部署</span>
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-         ACTIONS_DEPLOY_KEY: <span style="color:#e6db74">${</span>{ secrets.ACTIONS_DEPLOY_KEY <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+         DEPLOY_KEY: <span style="color:#e6db74">${</span>{ secrets.ACTIONS_DEPLOY_KEY <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
          EXTERNAL_REPOSITORY: 你的用户名/你的用户名.github.io
+         CNAME: <span style="color:#75715e">#添加你的网站域名作CNAME以便解析</span>
          PUBLISH_BRANCH: master
          PUBLISH_DIR: ./public
+         COMMIT_MESSAGE: <span style="color:#e6db74">${</span>{ github.event.head_commit.message <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>注：25 行的 你的用户名 填写你的 Github 用户名</strong></p>
@@ -321,13 +328,6 @@
 <p>到自己域名提供商的控制台添加解析。</p>
 <p>添加一条主机记录为 <code>CNAME</code> 解析，记录值为 <code>[你的用户名].github.io</code>，</p>
 <p>解析生效后，就可以通过 <code>owovo.xyz</code> 访问自己放在 <code>Github</code> 上的个人主页了，并且通过 <code>[你的用户名].github.io</code> 访问时，会自动跳转到 <code>owovo.xyz</code>.</p>
-<h2 id="六注意事项">六、注意事项</h2>
-<p>我们在做完以上流程后，可以用自己的域名访问自己 Blog 了。</p>
-<p>但是有一个问题随之出现了，就是我们提交一次 Push 后就再无法使用自己的域名访问了，还需要到 Setting 中重新设置。</p>
-<p>出现这个问题的主要原因是 <code>[你的用户名].github.io</code> 下的 <code>CNAME</code> 文件在 Push 时自动覆盖了，为了解决这个问题，我们可以这样做：</p>
-<p>在你的 Hugo 文件 <code>content</code> 目录下新建一个 <code>CNAME</code> 文件，内容为 你的域名。</p>
-<p><strong>注意，<code>CANME</code> 不要有任何后缀！！！</strong></p>
-<p>这样就会在编译时自动将 <code>CNAME</code> 文件放到 <code>[你的用户名].github.io</code> 根目录，就完美的解决了这个问题。</p>
         </div>
 
         
