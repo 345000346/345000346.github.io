@@ -1,149 +1,642 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>使用今日诗词API | LIGT'S</title><meta property="og:title" content="使用今日诗词API - LIGT'S"><meta property="og:type" content="article"><meta property="article:published_time" content="2019-08-28T11:39:45+08:00"><meta property="article:modified_time" content="2019-08-28T11:39:45+08:00"><meta name=Keywords content="日常,想法,Android,Windows,手机,电脑"><meta name=description content="使用今日诗词API"><meta name=author content="LIGT"><meta property="og:url" content="https://owovo.xyz/post/%E4%BD%BF%E7%94%A8%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8DAPI.html"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style-dark.css><script type=text/javascript src=//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js></script></head><body><header id=header class=clearfix><div class=container><div class=col-group><div class=site-name><a id=logo href=https://owovo.xyz>LIGT'S</a><p class=description>分享一些日常、没事无聊的瞎想、一些常用的工具等</p></div><div><nav id=nav-menu class=clearfix><a href=https://owovo.xyz>首页</a>
-<a href=https://owovo.xyz/archives.html title=文章>文章</a>
-<a href=https://owovo.xyz/categories.html title=分类>分类</a>
-<a href=https://owovo.xyz/tags.html title=标签>标签</a>
-<a href=https://owovo.xyz/ideas.html title=想法>想法</a>
-<a href=https://owovo.xyz/about.html title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><script src=/js/addaTartget.js></script><div class=res-cons><style type=text/css>.post-toc{position:fixed;margin-left:-376.5px;padding:5px 10px;font-family:Athelas,STHeiti,Microsoft Yahei,serif;font-size:12px;border:1px solid rgba(0,0,0,.07);border-radius:5px;background-color:#373737;background-clip:padding-box;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,.125);box-shadow:1px 1px 2px rgba(0,0,0,.125);word-wrap:break-word;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:999;cursor:pointer;max-height:70%;overflow-y:auto;overflow-x:hidden}.post-toc .post-toc-title{width:100%;margin:0 auto;font-size:20px;font-weight:400;color:#fff;text-transform:uppercase;text-align:center}.post-toc .post-toc-content{font-size:15px}.post-toc .post-toc-content>nav>ul{margin:10px 0}.post-toc .post-toc-content ul{padding-left:20px;list-style:square;margin:.5em;line-height:1.8em}.post-toc .post-toc-content ul ul{padding-left:15px;display:none}@media print,screen and (max-width:1057px){.post-toc{display:none}}</style><div class=post-toc style=position:absolute;top:188px><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#通用简单安装代码>通用简单安装代码</a></li><li><a href=#通用高级安装代码>通用高级安装代码</a><ul><li><a href=#result-返回的格式>result 返回的格式</a></li><li><a href=#高级版使用范例>高级版使用范例</a></li></ul></li></ul></nav></div></div><script type=text/javascript>$(document).ready(function(){var postToc=$(".post-toc");if(postToc.length){var leftPos=$("#main").offset().left;postToc.css({"margin-left":(0-leftPos)})
-var t=postToc.offset().top-20,a={start:{position:"absolute",top:t},process:{position:"fixed",top:20},};$(window).scroll(function(){var e=$(window).scrollTop();e<t?postToc.css(a.start):postToc.css(a.process)})}})</script><article class=post><header><h1 class=post-title>使用今日诗词API</h1></header><date class="post-meta meta-date">2019年8月28日</date><div class=post-meta><span>|</span>
-<span class=meta-category><a href=https://owovo.xyz/categories/API>API</a></span></div><div class=post-meta><span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
-阅读</span></span></div><div class=clear style=display:none><div class=toc-article><div class=toc-title>文章目录</div></div></div><div class=post-content id=post-content-id><p>今日诗词 API 是一个可以返回一句古诗词名句的接口。它可以通过图片和 JSON 格式调用。今日诗词 API 根据不同地点、时间、节日、季节、天气、景观、城市进行智能推荐。</p><h2 id=通用简单安装代码>通用简单安装代码</h2><p>在 HTML 中需要加载诗词的地方放置以下加载代码即可，和 网站统计 的安装方法一致。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-HTML data-lang=HTML>&lt;<span style=color:#f92672>span</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;jinrishici-sentence&#34;</span>&gt;正在加载今日诗词....&lt;/<span style=color:#f92672>span</span>&gt;
-&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://sdk.jinrishici.com/v2/browser/jinrishici.js&#34;</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-</code></pre></td></tr></table></div></div><p>SDK 会自动寻找 id 或者 class 为 <code>jinrishici-sentence</code> 的标签，将里面的内容替换为诗词
-如果需要在多个地方显示诗词，添加多个 <code>class=" jinrishici-sentence "</code> 的 span 即可</p><h2 id=通用高级安装代码>通用高级安装代码</h2><p>如果你有其他需求（如获取作者、朝代等），可以调用我们提供的加载函数<code>jinrishici.load</code> 并传入回调函数，每调用一次，会传入一个新的诗词</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-HTML data-lang=HTML>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://sdk.jinrishici.com/v2/browser/jinrishici.js&#34;</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span>&gt;
-  <span style=color:#a6e22e>jinrishici</span>.<span style=color:#a6e22e>load</span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>result</span>) {
-    <span style=color:#75715e>// 自己的处理逻辑
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>result</span>)
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>使用今日诗词API | LIGT&#39;S</title>
+    <meta property="og:title" content="使用今日诗词API - LIGT&#39;S">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-08-28T11:39:45&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-08-28T11:39:45&#43;08:00'>
+        
+    <meta name="Keywords" content="日常,想法,Android,Windows,手机,电脑">
+    <meta name="description" content="使用今日诗词API">
+        
+    <meta name="author" content="LIGT">
+    <meta property="og:url" content="https://owovo.xyz/post/%E4%BD%BF%E7%94%A8%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8DAPI.html">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    
+    
+    
+    <link rel="stylesheet" href='/css/style-dark.css'>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                <a id="logo" href="https://owovo.xyz">
+                    LIGT&#39;S
+                </a>
+                
+                <p class="description">分享一些日常、没事无聊的瞎想、一些常用的工具等</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://owovo.xyz">首页</a>
+                    
+                    <a  href="https://owovo.xyz/archives.html" title="文章">文章</a>
+                    
+                    <a  href="https://owovo.xyz/categories.html" title="分类">分类</a>
+                    
+                    <a  href="https://owovo.xyz/tags.html" title="标签">标签</a>
+                    
+                    <a  href="https://owovo.xyz/ideas.html" title="想法">想法</a>
+                    
+                    <a  href="https://owovo.xyz/about.html" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<script src="/js/addaTartget.js"></script>
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+         
+        margin-left: -376.5px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color:#373737;
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#通用简单安装代码">通用简单安装代码</a></li>
+    <li><a href="#通用高级安装代码">通用高级安装代码</a>
+      <ul>
+        <li><a href="#result-返回的格式">result 返回的格式</a></li>
+        <li><a href="#高级版使用范例">高级版使用范例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            
+            
+                
+                postToc.css({"margin-left":(0-leftPos)})
+            
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">使用今日诗词API</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年8月28日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://owovo.xyz/categories/API'>API</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content" id="post-content-id">
+            <p>今日诗词 API 是一个可以返回一句古诗词名句的接口。它可以通过图片和 JSON 格式调用。今日诗词 API 根据不同地点、时间、节日、季节、天气、景观、城市进行智能推荐。</p>
+<h2 id="通用简单安装代码">通用简单安装代码</h2>
+<p>在 HTML 中需要加载诗词的地方放置以下加载代码即可，和 网站统计 的安装方法一致。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jinrishici-sentence&#34;</span>&gt;正在加载今日诗词....&lt;/<span style="color:#f92672">span</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://sdk.jinrishici.com/v2/browser/jinrishici.js&#34;</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>SDK 会自动寻找 id 或者 class 为 <code>jinrishici-sentence</code> 的标签，将里面的内容替换为诗词
+如果需要在多个地方显示诗词，添加多个 <code>class=&quot; jinrishici-sentence &quot;</code> 的 span 即可</p>
+<h2 id="通用高级安装代码">通用高级安装代码</h2>
+<p>如果你有其他需求（如获取作者、朝代等），可以调用我们提供的加载函数<code>jinrishici.load</code> 并传入回调函数，每调用一次，会传入一个新的诗词</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://sdk.jinrishici.com/v2/browser/jinrishici.js&#34;</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+  <span style="color:#a6e22e">jinrishici</span>.<span style="color:#a6e22e">load</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">result</span>) {
+    <span style="color:#75715e">// 自己的处理逻辑
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>)
   });
-&lt;/<span style=color:#f92672>script</span>&gt;
-</code></pre></td></tr></table></div></div><h3 id=result-返回的格式>result 返回的格式</h3><h4 id=正确返回>正确返回</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-    <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;success&#34;</span>,
-    <span style=color:#f92672>&#34;data&#34;</span>: {
-        <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;5b8b9572e116fb3714e6faba&#34;</span>,
-        <span style=color:#f92672>&#34;content&#34;</span>: <span style=color:#e6db74>&#34;君问归期未有期，巴山夜雨涨秋池。&#34;</span>,
-        <span style=color:#f92672>&#34;popularity&#34;</span>: <span style=color:#ae81ff>1170000</span>,
-        <span style=color:#f92672>&#34;origin&#34;</span>: {
-            <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;夜雨寄北&#34;</span>,
-            <span style=color:#f92672>&#34;dynasty&#34;</span>: <span style=color:#e6db74>&#34;唐代&#34;</span>,
-            <span style=color:#f92672>&#34;author&#34;</span>: <span style=color:#e6db74>&#34;李商隐&#34;</span>,
-            <span style=color:#f92672>&#34;content&#34;</span>: [
-                <span style=color:#e6db74>&#34;君问归期未有期，巴山夜雨涨秋池。&#34;</span>,
-                <span style=color:#e6db74>&#34;何当共剪西窗烛，却话巴山夜雨时。&#34;</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="result-返回的格式">result 返回的格式</h3>
+<h4 id="正确返回">正确返回</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;success&#34;</span>,
+    <span style="color:#f92672">&#34;data&#34;</span>: {
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;5b8b9572e116fb3714e6faba&#34;</span>,
+        <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;君问归期未有期，巴山夜雨涨秋池。&#34;</span>,
+        <span style="color:#f92672">&#34;popularity&#34;</span>: <span style="color:#ae81ff">1170000</span>,
+        <span style="color:#f92672">&#34;origin&#34;</span>: {
+            <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;夜雨寄北&#34;</span>,
+            <span style="color:#f92672">&#34;dynasty&#34;</span>: <span style="color:#e6db74">&#34;唐代&#34;</span>,
+            <span style="color:#f92672">&#34;author&#34;</span>: <span style="color:#e6db74">&#34;李商隐&#34;</span>,
+            <span style="color:#f92672">&#34;content&#34;</span>: [
+                <span style="color:#e6db74">&#34;君问归期未有期，巴山夜雨涨秋池。&#34;</span>,
+                <span style="color:#e6db74">&#34;何当共剪西窗烛，却话巴山夜雨时。&#34;</span>
             ],
-            <span style=color:#f92672>&#34;translate&#34;</span>: [
-                <span style=color:#e6db74>&#34;您问归期，归期实难说准，巴山连夜暴雨，涨满秋池。&#34;</span>,
-                <span style=color:#e6db74>&#34;何时归去，共剪西窗烛花，当面诉说，巴山夜雨况味。&#34;</span>
+            <span style="color:#f92672">&#34;translate&#34;</span>: [
+                <span style="color:#e6db74">&#34;您问归期，归期实难说准，巴山连夜暴雨，涨满秋池。&#34;</span>,
+                <span style="color:#e6db74">&#34;何时归去，共剪西窗烛花，当面诉说，巴山夜雨况味。&#34;</span>
             ]
         },
-        <span style=color:#f92672>&#34;matchTags&#34;</span>: [
-            <span style=color:#e6db74>&#34;秋&#34;</span>,
-            <span style=color:#e6db74>&#34;晚上&#34;</span>
+        <span style="color:#f92672">&#34;matchTags&#34;</span>: [
+            <span style="color:#e6db74">&#34;秋&#34;</span>,
+            <span style="color:#e6db74">&#34;晚上&#34;</span>
         ],
-        <span style=color:#f92672>&#34;recommendedReason&#34;</span>: <span style=color:#e6db74>&#34;&#34;</span>,
-        <span style=color:#f92672>&#34;cacheAt&#34;</span>: <span style=color:#e6db74>&#34;2018-09-17T21:18:44.693645&#34;</span>
+        <span style="color:#f92672">&#34;recommendedReason&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+        <span style="color:#f92672">&#34;cacheAt&#34;</span>: <span style="color:#e6db74">&#34;2018-09-17T21:18:44.693645&#34;</span>
     },
-    <span style=color:#f92672>&#34;token&#34;</span>: <span style=color:#e6db74>&#34;6453911a-9ad7-457e-9b9d-c21011b85a0c&#34;</span>,
-    <span style=color:#f92672>&#34;ipAddress&#34;</span>: <span style=color:#e6db74>&#34;162.248.93.154&#34;</span>
+    <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;6453911a-9ad7-457e-9b9d-c21011b85a0c&#34;</span>,
+    <span style="color:#f92672">&#34;ipAddress&#34;</span>: <span style="color:#e6db74">&#34;162.248.93.154&#34;</span>
 }
-</code></pre></td></tr></table></div></div><p>其中</p><p><code>data.content</code> 是核心，即推荐的诗句</p><p><code>data.matchTags</code> 是与你相关的标签，也是推荐给你的部分理由。</p><p><code>data.recommendedReason</code> 是推荐原因，暂未支持。</p><p><code>data.cacheAt</code> 是指我们会对每个 <code>Token</code> 进行预生成推荐数据并缓存。正常情况下我们会 10 分钟更新一次缓存数据。</p><p><code>data.popularity</code> 是我们对这句诗的流行度评价</p><p><code>data.origin</code> 源诗信息</p><p><code>data.origin.translate</code> 是整诗翻译，部分诗词有，部分没有</p><p><code>token</code> 是当前用户的 <code>token</code> ，原则上，同一个用户，一段时间内 Token 应该不变。</p><p><code>ipAddress</code> 是当前用户的 <code>ip</code> ，如果 IP 有异常，您需要查明您是否在服务端调用</p><h4 id=错误返回>错误返回</h4><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-    <span style=color:#f92672>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;error&#34;</span>,
-    <span style=color:#f92672>&#34;errCode&#34;</span>: <span style=color:#ae81ff>2001</span>,
-    <span style=color:#f92672>&#34;errMessage&#34;</span>: <span style=color:#e6db74>&#34;No matching handler&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其中</p>
+<p><code>data.content</code> 是核心，即推荐的诗句</p>
+<p><code>data.matchTags</code> 是与你相关的标签，也是推荐给你的部分理由。</p>
+<p><code>data.recommendedReason</code> 是推荐原因，暂未支持。</p>
+<p><code>data.cacheAt</code> 是指我们会对每个 <code>Token</code> 进行预生成推荐数据并缓存。正常情况下我们会 10 分钟更新一次缓存数据。</p>
+<p><code>data.popularity</code> 是我们对这句诗的流行度评价</p>
+<p><code>data.origin</code> 源诗信息</p>
+<p><code>data.origin.translate</code> 是整诗翻译，部分诗词有，部分没有</p>
+<p><code>token</code> 是当前用户的 <code>token</code> ，原则上，同一个用户，一段时间内 Token 应该不变。</p>
+<p><code>ipAddress</code> 是当前用户的 <code>ip</code> ，如果 IP 有异常，您需要查明您是否在服务端调用</p>
+<h4 id="错误返回">错误返回</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;error&#34;</span>,
+    <span style="color:#f92672">&#34;errCode&#34;</span>: <span style="color:#ae81ff">2001</span>,
+    <span style="color:#f92672">&#34;errMessage&#34;</span>: <span style="color:#e6db74">&#34;No matching handler&#34;</span>
 }
-</code></pre></td></tr></table></div></div><p><code>errcode</code> 是错误码，目前只有以下几种错误码，您也简单判断 HTTP 头中的状态码，对于错误返回，我们总不会返回 200</p><p><code>1001</code> ：内部服务器错误，HTTP 状态码 500</p><p><code>1002</code> ：API 路径不对，HTTP 状态码 404</p><p><code>2002</code> ：Token 不是服务器签发，HTTP 状态码 400</p><p><code>2003</code> ：IP 超过每日新用户限制，HTTP 状态码 400，这很有可能是您没有正确保存 Cookies 或者 Token</p><p>出错我们会帮你打在控制台上，您无需再次处理。
+</code></pre></td></tr></table>
+</div>
+</div><p><code>errcode</code> 是错误码，目前只有以下几种错误码，您也简单判断 HTTP 头中的状态码，对于错误返回，我们总不会返回 200</p>
+<p><code>1001</code> ：内部服务器错误，HTTP 状态码 500</p>
+<p><code>1002</code> ：API 路径不对，HTTP 状态码 404</p>
+<p><code>2002</code> ：Token 不是服务器签发，HTTP 状态码 400</p>
+<p><code>2003</code> ：IP 超过每日新用户限制，HTTP 状态码 400，这很有可能是您没有正确保存 Cookies 或者 Token</p>
+<p>出错我们会帮你打在控制台上，您无需再次处理。
 使用定制加载时，不要将标签的 id 或者 class 设置为 jinrishici-sentence ，否则 SDK 会自动加载一次
-使用 load 之前，请确保 SDK JS 文件已经引入</p><h3 id=高级版使用范例>高级版使用范例</h3><p>可以复制到一个 HTML 文件用浏览器打开查看效果：</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-HTML data-lang=HTML>&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://sdk.jinrishici.com/v2/browser/jinrishici.js&#34;</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;poem_sentence&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
-&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;poem_info&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
-&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span>&gt;
-  <span style=color:#a6e22e>jinrishici</span>.<span style=color:#a6e22e>load</span>(<span style=color:#66d9ef>function</span>(<span style=color:#a6e22e>result</span>) {
-    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>sentence</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#poem_sentence&#34;</span>)
-    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>info</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#poem_info&#34;</span>)
-    <span style=color:#a6e22e>sentence</span>.<span style=color:#a6e22e>innerHTML</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>content</span>
-    <span style=color:#a6e22e>info</span>.<span style=color:#a6e22e>innerHTML</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;【&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>origin</span>.<span style=color:#a6e22e>dynasty</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;】&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>origin</span>.<span style=color:#a6e22e>author</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;《&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>origin</span>.<span style=color:#a6e22e>title</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;》&#39;</span>
+使用 load 之前，请确保 SDK JS 文件已经引入</p>
+<h3 id="高级版使用范例">高级版使用范例</h3>
+<p>可以复制到一个 HTML 文件用浏览器打开查看效果：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://sdk.jinrishici.com/v2/browser/jinrishici.js&#34;</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;poem_sentence&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;poem_info&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+  <span style="color:#a6e22e">jinrishici</span>.<span style="color:#a6e22e">load</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">result</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sentence</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#poem_sentence&#34;</span>)
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">info</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;#poem_info&#34;</span>)
+    <span style="color:#a6e22e">sentence</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">content</span>
+    <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;【&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">dynasty</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;】&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;《&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;》&#39;</span>
   });
-&lt;/<span style=color:#f92672>script</span>&gt;
-</code></pre></td></tr></table></div></div></div><script type=text/javascript>addaTarget("post-content-id");</script><div class=post-archive><h2>See Also</h2><ul class=listing><li><a href=/post/Windows-Apps.html>Windows 常用软件</a></li><li><a href=/archives.html>归档</a></li></ul></div><div class="post-meta meta-tags"><ul class=clearfix><li><a href=https://owovo.xyz/tags/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D>今日诗词</a></li><li><a href=https://owovo.xyz/tags/API>API</a></li></ul></div></article></div></div><div id=secondary><section class=widget><h3 class=widget-title>今日诗词</h3><script src=https://sdk.jinrishici.com/v2/browser/jinrishici.js></script><div id=poem_sentence style=color:#b8b8b8></div><br><div id=poem_info style=color:#b8b8b8></div><script type=text/javascript>jinrishici.load(function(result){var sentence=document.querySelector("#poem_sentence")
-var info=document.querySelector("#poem_info")
-sentence.innerHTML=result.data.content
-info.innerHTML='【'+result.data.origin.dynasty+'】'+result.data.origin.author+'《'+result.data.origin.title+'》'});</script></section><section class=widget><h3 class=widget-title>最近文章</h3><ul class=widget-list><li><a href=https://owovo.xyz/post/%E6%88%91%E8%BF%99%E4%B8%AA%E6%80%A7%E6%A0%BC%E7%A1%AE%E5%AE%9E%E8%AF%A5%E6%94%B9%E6%94%B9%E4%BA%86....html title=我这个性格，确实该改改了...>我这个性格，确实该改改了...</a></li><li><a href=https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E5%93%AA%E4%B8%AA%E7%9E%AC%E9%97%B4%E8%AE%A9%E4%BD%A0%E7%9F%A5%E9%81%93%E8%87%AA%E5%B7%B1%E5%B7%B2%E7%BB%8F%E4%B8%8D%E5%B0%8F%E4%BA%86-%E9%87%8E%E8%89%AF%E7%A5%9E%E7%9A%84%E5%9B%9E%E7%AD%94-%E7%9F%A5%E4%B9%8E.html title="（转载）哪个瞬间让你知道自己已经不小了? - 野良神的回答 - 知乎">（转载）哪个瞬间让你知道自己已经不小了? - 野良神的回答 - 知乎</a></li><li><a href=https://owovo.xyz/post/%E5%B0%8F%E7%B1%B310-Pro%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B%E4%BD%93%E9%AA%8C.html title="小米10 Pro简单上手体验">小米10 Pro简单上手体验</a></li><li><a href=https://owovo.xyz/post/%E4%BD%BF%E7%94%A8GithubActions+Hugo+GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html title="使用 Github Actions + Hugo + Github Pages搭建博客">使用 Github Actions + Hugo + Github Pages搭建博客</a></li><li><a href=https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html title=Flash去区域限制>Flash去区域限制</a></li></ul><a href=/post.html style=color:#0789e0>查看更多</a></section><section class=widget><h3 class=widget-title>分类</h3><ul class=widget-list><li><a href=https://owovo.xyz/categories/API.html>API (1)</a></li><li><a href=https://owovo.xyz/categories/Hugo.html>Hugo (3)</a></li><li><a href=https://owovo.xyz/categories/Windows.html>Windows (2)</a></li><li><a href=https://owovo.xyz/categories/%E5%B7%A5%E5%85%B7.html>工具 (1)</a></li><li><a href=https://owovo.xyz/categories/%E6%83%85%E6%84%9F.html>情感 (3)</a></li><li><a href=https://owovo.xyz/categories/%E6%89%8B%E6%9C%BA.html>手机 (1)</a></li><li><a href=https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC.html>脚本 (2)</a></li><li><a href=https://owovo.xyz/categories/%E8%B7%AF%E7%94%B1%E5%99%A8.html>路由器 (2)</a></li><li><a href=https://owovo.xyz/categories/%E9%9A%8F%E6%83%B3.html>随想 (1)</a></li></ul></section><section class=widget><h3 class=widget-title>标签</h3><div class=tagcloud><a href=https://owovo.xyz/tags/API.html>API</a>
-<a href=https://owovo.xyz/tags/DNS.html>DNS</a>
-<a href=https://owovo.xyz/tags/Github.html>Github</a>
-<a href=https://owovo.xyz/tags/Hugo.html>Hugo</a>
-<a href=https://owovo.xyz/tags/Proxmox.html>Proxmox</a>
-<a href=https://owovo.xyz/tags/V2ex.html>V2ex</a>
-<a href=https://owovo.xyz/tags/Windows.html>Windows</a>
-<a href=https://owovo.xyz/tags/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D.html>今日诗词</a>
-<a href=https://owovo.xyz/tags/%E5%B0%8F%E7%B1%B3.html>小米</a>
-<a href=https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7.html>工具</a>
-<a href=https://owovo.xyz/tags/%E6%83%85%E6%84%9F.html>情感</a>
-<a href=https://owovo.xyz/tags/%E6%89%8B%E6%9C%BA.html>手机</a>
-<a href=https://owovo.xyz/tags/%E7%B3%BB%E7%BB%9F.html>系统</a>
-<a href=https://owovo.xyz/tags/%E8%84%9A%E6%9C%AC.html>脚本</a>
-<a href=https://owovo.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA.html>虚拟机</a>
-<a href=https://owovo.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8.html>路由器</a>
-<a href=https://owovo.xyz/tags/%E8%BD%AF%E4%BB%B6.html>软件</a>
-<a href=https://owovo.xyz/tags/%E9%9A%8F%E6%83%B3.html>随想</a></div></section><section class=widget><section class=widget><h3 class=widget-title>我的链接</h3><ul class=widget-list><li><a target=_blank href=https://weibo.com/u/1733321624><img src="https://img.shields.io/badge/dynamic/json?style=flat-square&color=282c34&labelColor=e71f19&label=%e5%be%ae%e5%8d%9a&query=%24.data.totalSubs&suffix=%20%e5%85%b3%e6%b3%a8%e8%80%85&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dweibo%26queryKey%3D1733321624&logo=sina-weibo"></a></li><li><a target=_blank href=https://github.com/345000346><img src="https://img.shields.io/badge/dynamic/json?style=flat-square&color=282c34&labelColor=181717&label=GitHub&query=%24.data.totalSubs&suffix=%20%e5%85%b3%e6%b3%a8%e8%80%85&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3D345000346&logo=github"></a></li></ul></section></section><section class=widget></section></div></div></div></div><footer id=footer><div class=container>本站已稳定运行
-<b id=d></b>天 <b id=h></b>小时 <b id=m></b>分 <b id=s></b>秒
-<script>function timer(){var start=new Date("8/22/2019 00:00:00");var t=new Date()-start;var h=~~(t/1000/60/60%24);if(h<10){h="0"+h;}
-var m=~~(t/1000/60%60);if(m<10){m="0"+m;}
-var s=~~(t/1000%60);if(s<10){s="0"+s;}
-document.getElementById('d').innerHTML=~~(t/1000/60/60/24);document.getElementById('h').innerHTML=h;document.getElementById('m').innerHTML=m;document.getElementById('s').innerHTML=s;}
-timer();setInterval(timer,1000);</script><br>&copy; 2020 <a href=https://owovo.xyz>LIGT'S</a> Designed by
-LIGT. Powered by <a rel="nofollow noreferer noopener" href=https://gohugo.io target=_blank>Hugo</a>.
-<a href=https://www.flysnow.org/ target=_blank>Theme</a> based on <a href=https://github.com/flysnow-org/maupassant-hugo target=_blank>maupassant</a>.
-Hosted by <a rel="nofollow noreferer noopener" href=https://pages.github.com target=_blank>Github Pages</a>.</div></footer><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$']],processEscapes:true}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><a id=rocket href=#top></a><script type=text/javascript src="/js/totop.js?v=0.0.0" async></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-47934503-5','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script></body></html>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+        <script type="text/javascript">
+            addaTarget("post-content-id");
+        </script>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/Windows-Apps.html">Windows 常用软件</a></li>
+        
+        <li><a href="/archives.html">归档</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://owovo.xyz/tags/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D'>今日诗词</a></li>
+                
+                <li><a href='https://owovo.xyz/tags/API'>API</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    
+    <section class="widget">
+        <h3 class="widget-title">今日诗词</h3>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<div id="poem_sentence" style="color: #B8B8B8;"></div>
+<br>
+<div id="poem_info" style="color: #B8B8B8;"></div>
+<script type="text/javascript">
+  jinrishici.load(function(result) {
+    var sentence = document.querySelector("#poem_sentence")
+    var info = document.querySelector("#poem_info")
+    sentence.innerHTML = result.data.content
+    info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+  });
+</script>
+    </section>
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://owovo.xyz/post/%E6%88%91%E8%BF%99%E4%B8%AA%E6%80%A7%E6%A0%BC%E7%A1%AE%E5%AE%9E%E8%AF%A5%E6%94%B9%E6%94%B9%E4%BA%86....html" title="我这个性格，确实该改改了...">我这个性格，确实该改改了...</a>
+    </li>
+    
+    <li>
+        <a href="https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E5%93%AA%E4%B8%AA%E7%9E%AC%E9%97%B4%E8%AE%A9%E4%BD%A0%E7%9F%A5%E9%81%93%E8%87%AA%E5%B7%B1%E5%B7%B2%E7%BB%8F%E4%B8%8D%E5%B0%8F%E4%BA%86-%E9%87%8E%E8%89%AF%E7%A5%9E%E7%9A%84%E5%9B%9E%E7%AD%94-%E7%9F%A5%E4%B9%8E.html" title="（转载）哪个瞬间让你知道自己已经不小了? - 野良神的回答 - 知乎">（转载）哪个瞬间让你知道自己已经不小了? - 野良神的回答 - 知乎</a>
+    </li>
+    
+    <li>
+        <a href="https://owovo.xyz/post/%E5%B0%8F%E7%B1%B310-Pro%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B%E4%BD%93%E9%AA%8C.html" title="小米10 Pro简单上手体验">小米10 Pro简单上手体验</a>
+    </li>
+    
+    <li>
+        <a href="https://owovo.xyz/post/%E4%BD%BF%E7%94%A8GithubActions&#43;Hugo&#43;GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html" title="使用 Github Actions &#43; Hugo &#43; Github Pages搭建博客">使用 Github Actions &#43; Hugo &#43; Github Pages搭建博客</a>
+    </li>
+    
+    <li>
+        <a href="https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html" title="Flash去区域限制">Flash去区域限制</a>
+    </li>
+    
+</ul>
+<a href="/post.html" style="color: #0789E0">查看更多</a>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://owovo.xyz/categories/API.html">API (1)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/Hugo.html">Hugo (3)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/Windows.html">Windows (2)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/%E5%B7%A5%E5%85%B7.html">工具 (1)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/%E6%83%85%E6%84%9F.html">情感 (3)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/%E6%89%8B%E6%9C%BA.html">手机 (1)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC.html">脚本 (2)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/%E8%B7%AF%E7%94%B1%E5%99%A8.html">路由器 (2)</a></li>
+    
+    <li><a href="https://owovo.xyz/categories/%E9%9A%8F%E6%83%B3.html">随想 (1)</a></li>
+    
+</ul>
+    </section>
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://owovo.xyz/tags/API.html">API</a>
+    
+    <a href="https://owovo.xyz/tags/DNS.html">DNS</a>
+    
+    <a href="https://owovo.xyz/tags/Github.html">Github</a>
+    
+    <a href="https://owovo.xyz/tags/Hugo.html">Hugo</a>
+    
+    <a href="https://owovo.xyz/tags/Proxmox.html">Proxmox</a>
+    
+    <a href="https://owovo.xyz/tags/V2ex.html">V2ex</a>
+    
+    <a href="https://owovo.xyz/tags/Windows.html">Windows</a>
+    
+    <a href="https://owovo.xyz/tags/%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D.html">今日诗词</a>
+    
+    <a href="https://owovo.xyz/tags/%E5%B0%8F%E7%B1%B3.html">小米</a>
+    
+    <a href="https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7.html">工具</a>
+    
+    <a href="https://owovo.xyz/tags/%E6%83%85%E6%84%9F.html">情感</a>
+    
+    <a href="https://owovo.xyz/tags/%E6%89%8B%E6%9C%BA.html">手机</a>
+    
+    <a href="https://owovo.xyz/tags/%E7%B3%BB%E7%BB%9F.html">系统</a>
+    
+    <a href="https://owovo.xyz/tags/%E8%84%9A%E6%9C%AC.html">脚本</a>
+    
+    <a href="https://owovo.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA.html">虚拟机</a>
+    
+    <a href="https://owovo.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8.html">路由器</a>
+    
+    <a href="https://owovo.xyz/tags/%E8%BD%AF%E4%BB%B6.html">软件</a>
+    
+    <a href="https://owovo.xyz/tags/%E9%9A%8F%E6%83%B3.html">随想</a>
+    
+</div>
+    </section>
+    <section class="widget">
+        
+<section class="widget">
+    <h3 class="widget-title">我的链接</h3>
+		<ul class="widget-list">
+	        
+	        <li>
+	            <a target="_blank" href="https://weibo.com/u/1733321624"><img src="https://img.shields.io/badge/dynamic/json?style=flat-square&amp;color=282c34&amp;labelColor=e71f19&amp;label=%e5%be%ae%e5%8d%9a&amp;query=%24.data.totalSubs&amp;suffix=%20%e5%85%b3%e6%b3%a8%e8%80%85&amp;url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dweibo%26queryKey%3D1733321624&amp;logo=sina-weibo"></a>
+	        </li>
+	        
+	        <li>
+	            <a target="_blank" href="https://github.com/345000346"><img src="https://img.shields.io/badge/dynamic/json?style=flat-square&amp;color=282c34&amp;labelColor=181717&amp;label=GitHub&amp;query=%24.data.totalSubs&amp;suffix=%20%e5%85%b3%e6%b3%a8%e8%80%85&amp;url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3D345000346&amp;logo=github"></a>
+	        </li>
+	        
+	    </ul>
+</section>
+
+    </section>
+    <section class="widget">
+        
+    </section>
+    
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        
+         本站已稳定运行
+        <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分 <b id="s"></b> 秒
+        <script>
+            function timer() {
+                var start = new Date("8/22/2019 00:00:00");
+            var t = new Date() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
+            }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+            }
+            timer();
+            setInterval(timer, 1000);
+        </script>
+        <br> &copy; 2020 <a href="https://owovo.xyz">LIGT&#39;S</a> Designed by
+        LIGT. Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io"
+            target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a
+            href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+         Hosted by <a rel="nofollow noreferer noopener"
+            href="https://pages.github.com" target="_blank">Github Pages</a>. 
+    </div>
+</footer>
+
+
+
+<script type="text/javascript">
+    window.MathJax = {
+        tex2jax: {
+            inlineMath: [
+                ['$', '$']
+            ],
+            processEscapes: true
+        }
+    };
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-47934503-5', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+ 
+<script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+
+</html>
