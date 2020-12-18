@@ -52,41 +52,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>路由器</title>
-      <link>https://owovo.xyz/categories/%E8%B7%AF%E7%94%B1%E5%99%A8.html</link>
-      <pubDate>Tue, 10 Dec 2019 19:32:10 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/categories/%E8%B7%AF%E7%94%B1%E5%99%A8.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>脚本</title>
-      <link>https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC.html</link>
-      <pubDate>Thu, 10 Oct 2019 08:41:03 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>https://owovo.xyz/categories/Windows.html</link>
-      <pubDate>Wed, 04 Sep 2019 18:21:39 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/categories/Windows.html</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>API</title>
-      <link>https://owovo.xyz/categories/API.html</link>
-      <pubDate>Wed, 28 Aug 2019 11:39:45 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/categories/API.html</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
