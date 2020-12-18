@@ -448,7 +448,6 @@
     </section>
 
     <div class="hidden md:block w-full lg:w-1/4 xl:w-1/4 px-6 text-gray-800 leading-normal">
-
         <div class="lg:w-full mx-auto items-center justify-between">
     <div class="bg-white shadow rounded overflow-hidden">
         <div class="bg-cover bg-auto mx-auto w-32 h-32 mt-5 rounded-full" style="background-image: url('https://i.loli.net/2020/12/18/71QeDAbT2YlFzrU.jpg')"> </div>
@@ -543,7 +542,25 @@
 
 
 
+            <div class="flex flex-col justify-between sticky top-0 pt-12 pb-4 -mt-10 text-gray-600">
+                <div class="bg-white shadow rounded p-4 mt-5">
+                    <h3 class="text-base font-bold py-2 yg:pb-6 text-gray-700">今日诗词</h3>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<div id="poem_sentence" class="sticky text-sm" style="top: 6em"></div>
+<br />
+<div id="poem_info"></div>
+<script type="text/javascript">
+  jinrishici.load(function (result) {
+    var sentence = document.querySelector("#poem_sentence");
+    var info = document.querySelector("#poem_info");
+    sentence.innerHTML = result.data.content;
+    info.innerHTML =
+      "【" + result.data.origin.dynasty + "】" + result.data.origin.author + "《" + result.data.origin.title + "》";
+  });
+</script>
 
+                </div>
+          </div>
     </div>
 
 
