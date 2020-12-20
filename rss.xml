@@ -6,10 +6,43 @@
     <description>Recent content on LIGT&#39;S BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Nov 2020 12:40:14 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 22:19:10 +0800</lastBuildDate>
     
         <atom:link href="https://owovo.xyz/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在闲置手机上安装 AdGuardHome </title>
+      <link>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</link>
+      <pubDate>Sun, 20 Dec 2020 22:19:10 +0800</pubDate>
+      
+      <guid>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</guid>
+      
+        <description>&lt;p&gt;今天在闲置多年的小米 3(cancro)上安装了 &lt;code&gt;AdGuardHome&lt;/code&gt; ，用来局域网内去广告等&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;总结了下，有两种方法，都需要 root 权限
+
+这里先说第一种，第二种需要安装 Linux Deploy，太麻烦了，以后再说。
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;第一种方法&#34;&gt;第一种方法&lt;/h2&gt;
+&lt;h3 id=&#34;使用-magisk-模块&#34;&gt;使用 Magisk 模块&lt;/h3&gt;
+&lt;p&gt;1.首先手机上要有 &lt;code&gt;Magisk&lt;/code&gt; ，然后安装好 &lt;a href=&#34;https://github.com/meefik/busybox/releases&#34;&gt;&lt;code&gt;Busybox&lt;/code&gt;&lt;/a&gt; 和 &lt;code&gt;termux&lt;/code&gt; ， &lt;code&gt;termux&lt;/code&gt; 酷安有&lt;/p&gt;
+&lt;p&gt;2.安装好后，打开 &lt;code&gt;Busybox&lt;/code&gt; ，给 &lt;code&gt;Root&lt;/code&gt; 权限，安装&lt;/p&gt;
+&lt;p&gt;3.下载 &lt;a href=&#34;https://github.com/E7KMbb/AdGuardHome_For_Magisk&#34;&gt;&lt;code&gt;AdGuardHome&lt;/code&gt;&lt;/a&gt; 模块源码，到 &lt;code&gt;Magisk&lt;/code&gt; 管理器中刷入&lt;/p&gt;
+&lt;p&gt;4.刷入重启之后，打开 &lt;code&gt;termux&lt;/code&gt; ，给 &lt;code&gt;root&lt;/code&gt; 权限&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;su&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后再输入 &lt;code&gt;AdGuardHome_control start&lt;/code&gt; ，就可以了&lt;/p&gt;
+&lt;p&gt;默认管理地址是 &lt;code&gt;你的手机IP地址:3000&lt;/code&gt; ,也可以从内网其他终端访问&lt;/p&gt;
+&lt;p&gt;5.配置好 &lt;code&gt;AdGuardHome&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;6.将路由器 &lt;code&gt;DNS&lt;/code&gt; 地址指向手机的 &lt;code&gt;IP&lt;/code&gt; 地址&lt;/p&gt;
+&lt;h3 id=&#34;注意&#34;&gt;注意&lt;/h3&gt;
+&lt;p&gt;1.如果模块刷入失败的话，是因为下载的 &lt;code&gt;zip&lt;/code&gt; 包有两层，去掉一层文件夹就好了&lt;/p&gt;
+&lt;p&gt;2.由于脚本需要在线下载 &lt;code&gt;AdguardHome&lt;/code&gt; 安装包，所以国内下载会很慢，需要加速，请自寻方法&lt;/p&gt;
+&lt;p&gt;3.最好在路由器上给手机固定一个静态 &lt;code&gt;IP&lt;/code&gt; ，避免手机内网 &lt;code&gt;IP&lt;/code&gt; 变动导致失效&lt;/p&gt;
+&lt;p&gt;4.&lt;code&gt;AdGuardHome_control&lt;/code&gt; 命令支持 &lt;code&gt;start&lt;/code&gt; | &lt;code&gt;stop&lt;/code&gt; | &lt;code&gt;restart&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;5.想要取消该功能，通过 &lt;code&gt;Magisk Manager&lt;/code&gt; 卸载该模块即可，注意将路由器 &lt;code&gt;DNS&lt;/code&gt; 地址改回&lt;/p&gt;
+&lt;h2 id=&#34;第二种方法&#34;&gt;第二种方法&lt;/h2&gt;
+&lt;p&gt;(留坑待填)&lt;/p&gt;</description>
+      
+    </item>
     
     <item>
       <title>（转载）哪个瞬间让你知道自己已经不小了? - 野良神的回答 - 知乎</title>
@@ -303,66 +336,6 @@
 &lt;p&gt;Chrome 和任何基于 Chromium 的浏览器，请直接使用 &lt;a href=&#34;https://www.lanzous.com/b0i6p2qh&#34;&gt;“Adobe  Flash Player PPAPI &lt;strong&gt;.0.0.&lt;/strong&gt;* for Chromium”&lt;/a&gt; 直接替换文件，路径是 User Data\PepperFlash*&lt;em&gt;.0.0.&lt;/em&gt;&lt;strong&gt;\ 下的 manifest.json 和 pepflashplayer.dll。（注：&lt;/strong&gt;.0.0.*** 指的是 Flash 的版本号）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>LEDE下SmartDNS安装使用</title>
-      <link>https://owovo.xyz/post/LEDE%E4%B8%8BSmartDNS%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</link>
-      <pubDate>Tue, 10 Dec 2019 19:32:10 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/post/LEDE%E4%B8%8BSmartDNS%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</guid>
-      
-        <description>&lt;p&gt;SmartDNS 是一个运行在本地的 DNS 服务器，SmartDNS 接受本地客户端的 DNS 查询请求，从多个上游 DNS 服务器获取 DNS 查询结果，并将访问速度最快的结果返回给客户端，提高网络访问速度。 同时支持指定特定域名 IP 地址，并高性匹配，达到过滤广告的效果。
-与 dnsmasq 的 all-servers 不同，smartdns 返回的是访问速度最快的解析结果。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;1--安装&#34;&gt;1.  安装&lt;/h2&gt;
-&lt;p&gt;将软件使用 winscp 上传到路由器的 /root 目录，执行如下命令安装&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; opkg install smartdns.xxxxxxxx.xxxx.ipk
- opkg install luci-app-smartdns.xxxxxxxx.xxxx.all.ipk
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;2-修改配置&#34;&gt;2. 修改配置&lt;/h2&gt;
-&lt;p&gt;登录 openwrt 管理页面，打开 &lt;code&gt;Services&lt;/code&gt;-&amp;gt;&lt;code&gt;SmartDNS&lt;/code&gt; 进行配置。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在 &lt;code&gt;Upstream Servers&lt;/code&gt; 增加上游 DNS 服务器配置，建议配置多个国内外 DNS 服务器。&lt;/li&gt;
-&lt;li&gt;在 &lt;code&gt;Domain Address&lt;/code&gt; 指定特定域名的 IP 地址，可用于广告屏蔽。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;3-启用服务&#34;&gt;3. 启用服务&lt;/h2&gt;
-&lt;p&gt;SmartDNS 中重定向选中&lt;code&gt;重定向53端口到SmartDNS&lt;/code&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;启用 smartdns 的 53 端口重定向&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;登录路由器，点击 &lt;code&gt;Services&lt;/code&gt;-&amp;gt;&lt;code&gt;SmartDNS&lt;/code&gt;-&amp;gt;&lt;code&gt;redirect&lt;/code&gt;，选择&lt;code&gt;重定向53端口到SmartDNS&lt;/code&gt; 启用 53 端口转发。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;检测转发服务是否配置成功&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;使用 &lt;code&gt;nslookup -querytype=ptr 0.0.0.0&lt;/code&gt; 查询域名
-看命令结果中的 &lt;code&gt;name&lt;/code&gt; 项目是否显示为 &lt;code&gt;smartdns&lt;/code&gt; 或&lt;code&gt;主机名&lt;/code&gt;，如 &lt;code&gt;smartdns&lt;/code&gt; 则表示生效&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  pi@raspberrypi:~/code/smartdns_build $ nslookup -querytype=ptr 0.0.0.0
-  Server:         192.168.1.1
-  Address:        192.168.1.1##53
-     
-  Non-authoritative answer:
-  0.0.0.0.in-addr.arpa  name = smartdns.
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;界面提示重定向失败&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;检查 iptable，ip6table 命令是否正确安装。&lt;/li&gt;
-&lt;li&gt;openwrt 15.01 系统不支持 IPV6 重定向，如网络需要支持 IPV6，请将 DNSMASQ 上游改为 smartdns，或者将 smartdns 的端口改为 53，并停用 dnsmasq。&lt;/li&gt;
-&lt;li&gt;LEDE 之后系统，请安装 IPV6 的 nat 转发驱动。点击 &lt;code&gt;system&lt;/code&gt;-&amp;gt;&lt;code&gt;Software&lt;/code&gt;，点击 &lt;code&gt;update lists&lt;/code&gt; 更新软件列表后，安装 &lt;code&gt;ip6tables-mod-nat&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;使用如下命令检查路由规则是否生效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;  iptables -t nat -L PREROUTING | grep REDIRECT
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;4-启动服务&#34;&gt;4. 启动服务&lt;/h2&gt;
-&lt;p&gt;勾选配置页面中的 &lt;code&gt;Enable(启用)&lt;/code&gt; 来启动 SmartDNS&lt;/p&gt;
-&lt;h2 id=&#34;5-注意&#34;&gt;5. 注意：&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;如已经安装 chinaDNS，建议将 chinaDNS 的上游配置为 SmartDNS。&lt;/li&gt;
-&lt;li&gt;SmartDNS 默认情况，将 53 端口的请求转发到 SmartDNS 的本地端口，由 &lt;code&gt;Redirect&lt;/code&gt; 配置选项控制。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
       
     </item>
     

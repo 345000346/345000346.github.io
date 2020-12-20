@@ -6,7 +6,16 @@
     <description>Recent content in Posts on LIGT&#39;S BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Nov 2020 12:40:14 +0800</lastBuildDate><atom:link href="https://owovo.xyz/post/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 22:19:10 +0800</lastBuildDate><atom:link href="https://owovo.xyz/post/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在闲置手机上安装 AdGuardHome </title>
+      <link>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</link>
+      <pubDate>Sun, 20 Dec 2020 22:19:10 +0800</pubDate>
+      
+      <guid>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</guid>
+      <description>&lt;p&gt;今天在闲置多年的小米 3(cancro)上安装了 &lt;code&gt;AdGuardHome&lt;/code&gt; ，用来局域网内去广告等&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>（转载）哪个瞬间让你知道自己已经不小了? - 野良神的回答 - 知乎</title>
       <link>https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E5%93%AA%E4%B8%AA%E7%9E%AC%E9%97%B4%E8%AE%A9%E4%BD%A0%E7%9F%A5%E9%81%93%E8%87%AA%E5%B7%B1%E5%B7%B2%E7%BB%8F%E4%B8%8D%E5%B0%8F%E4%BA%86-%E9%87%8E%E8%89%AF%E7%A5%9E%E7%9A%84%E5%9B%9E%E7%AD%94-%E7%9F%A5%E4%B9%8E.html</link>
@@ -41,15 +50,6 @@
       
       <guid>https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html</guid>
       <description>&lt;p&gt;本以为国区最多也就在安装包添加几个推广勾选的，现在看来是彻底没法用了。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>LEDE下SmartDNS安装使用</title>
-      <link>https://owovo.xyz/post/LEDE%E4%B8%8BSmartDNS%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</link>
-      <pubDate>Tue, 10 Dec 2019 19:32:10 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/post/LEDE%E4%B8%8BSmartDNS%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</guid>
-      <description>SmartDNS 是一个运行在本地的 DNS 服务器，SmartDNS 接受本地客户端的 DNS 查询请求，从多个上游 DNS 服务器获取 DNS 查询结果，并将访问速度最快的结果返回给客户端，提高网络访问速度。 同时支持指定特定域名 IP 地址，并高性匹配，达到过滤广告的效果。 与 dnsmasq 的 all-servers 不同，smartdns 返回的是访问速度最快的解析结</description>
     </item>
     
   </channel>

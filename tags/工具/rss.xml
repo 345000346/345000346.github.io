@@ -6,7 +6,16 @@
     <description>Recent content in 工具 on LIGT&#39;S BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 30 Dec 2019 02:35:38 +0800</lastBuildDate><atom:link href="https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 22:19:10 +0800</lastBuildDate><atom:link href="https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在闲置手机上安装 AdGuardHome </title>
+      <link>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</link>
+      <pubDate>Sun, 20 Dec 2020 22:19:10 +0800</pubDate>
+      
+      <guid>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</guid>
+      <description>&lt;p&gt;今天在闲置多年的小米 3(cancro)上安装了 &lt;code&gt;AdGuardHome&lt;/code&gt; ，用来局域网内去广告等&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Flash去区域限制</title>
       <link>https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html</link>
@@ -44,15 +53,6 @@
 &lt;p&gt;Proxmox 官方提供了更新升级指南：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://pve.proxmox.com/wiki/Upgrade_from_5.x_to_6.0&#34;&gt;https://pve.proxmox.com/wiki/Upgrade_from_5.x_to_6.0&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;但由于中国境内的更新下载速度太慢，所以可以使用中科大 USTC 镜像源，加快 apt 下载速度。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Windows 常用软件</title>
-      <link>https://owovo.xyz/post/Windows-Apps.html</link>
-      <pubDate>Fri, 23 Aug 2019 10:05:47 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/post/Windows-Apps.html</guid>
-      <description>&lt;p&gt;这里是一些我常用的 Windows 软件，可以让你相对轻松的从几款知名或者优秀的软件中，寻找到最适合自己的。&lt;/p&gt;</description>
     </item>
     
   </channel>
