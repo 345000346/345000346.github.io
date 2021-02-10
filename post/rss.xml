@@ -6,7 +6,18 @@
     <description>Recent content in Posts on LIGT&#39;S BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 20 Dec 2020 22:19:10 +0800</lastBuildDate><atom:link href="https://owovo.xyz/post/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Feb 2021 22:41:14 +0800</lastBuildDate><atom:link href="https://owovo.xyz/post/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>好好说话、有效沟通、相互包容、共同成长</title>
+      <link>https://owovo.xyz/post/%E5%A5%BD%E5%A5%BD%E8%AF%B4%E8%AF%9D%E6%9C%89%E6%95%88%E6%B2%9F%E9%80%9A%E7%9B%B8%E4%BA%92%E5%8C%85%E5%AE%B9%E5%85%B1%E5%90%8C%E6%88%90%E9%95%BF.html</link>
+      <pubDate>Wed, 10 Feb 2021 22:41:14 +0800</pubDate>
+      
+      <guid>https://owovo.xyz/post/%E5%A5%BD%E5%A5%BD%E8%AF%B4%E8%AF%9D%E6%9C%89%E6%95%88%E6%B2%9F%E9%80%9A%E7%9B%B8%E4%BA%92%E5%8C%85%E5%AE%B9%E5%85%B1%E5%90%8C%E6%88%90%E9%95%BF.html</guid>
+      <description>&lt;p&gt;&lt;strong&gt;好好说话，有效沟通，少用反问句！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;好好说话，有效沟通，少用反问句！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;好好说话，有效沟通，少用反问句！&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>在闲置手机上安装 AdGuardHome </title>
       <link>https://owovo.xyz/post/%E5%9C%A8%E9%97%B2%E7%BD%AE%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-AdGuardHome.html</link>
@@ -41,15 +52,6 @@
       
       <guid>https://owovo.xyz/post/%E4%BD%BF%E7%94%A8GithubActions&#43;Hugo&#43;GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</guid>
       <description>&lt;p&gt;如果你想搭建自己的 Blog，但是又没有自己的 VPS、云服务器等，使用 Github Actions + Hugo + Github Pages搭建博客是最简单的选择。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Flash去区域限制</title>
-      <link>https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html</link>
-      <pubDate>Mon, 30 Dec 2019 02:35:38 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/post/Flash%E5%8E%BB%E5%8C%BA%E5%9F%9F%E9%99%90%E5%88%B6.html</guid>
-      <description>&lt;p&gt;本以为国区最多也就在安装包添加几个推广勾选的，现在看来是彻底没法用了。&lt;/p&gt;</description>
     </item>
     
   </channel>

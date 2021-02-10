@@ -3,32 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://owovo.xyz/categories.html</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owovo.xyz/</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owovo.xyz/post.html</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owovo.xyz/tags.html</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owovo.xyz/post/%E5%A5%BD%E5%A5%BD%E8%AF%B4%E8%AF%9D%E6%9C%89%E6%95%88%E6%B2%9F%E9%80%9A%E7%9B%B8%E4%BA%92%E5%8C%85%E5%AE%B9%E5%85%B1%E5%90%8C%E6%88%90%E9%95%BF.html</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owovo.xyz/tags/%E6%83%85%E6%84%9F.html</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://owovo.xyz/categories/%E6%83%85%E6%84%9F.html</loc>
+    <lastmod>2021-02-10T22:41:14+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://owovo.xyz/ideas.html</loc>
     <lastmod>2020-12-31T22:27:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://owovo.xyz/categories.html</loc>
-    <lastmod>2020-12-20T22:19:10+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://owovo.xyz/tags/DNS.html</loc>
-    <lastmod>2020-12-20T22:19:10+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://owovo.xyz/</loc>
-    <lastmod>2020-12-20T22:19:10+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://owovo.xyz/post.html</loc>
-    <lastmod>2020-12-20T22:19:10+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://owovo.xyz/tags.html</loc>
     <lastmod>2020-12-20T22:19:10+08:00</lastmod>
   </url>
   
@@ -129,16 +144,6 @@
   
   <url>
     <loc>https://owovo.xyz/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%86%E6%89%8B%E5%90%8E%E6%9C%89%E4%BA%9B%E4%BA%BA%E8%BF%98%E8%83%BD%E5%83%8F%E6%B2%A1%E4%BA%8B%E4%BA%BA%E4%B8%80%E6%A0%B7.html</loc>
-    <lastmod>2019-10-21T11:12:57+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://owovo.xyz/tags/%E6%83%85%E6%84%9F.html</loc>
-    <lastmod>2019-10-21T11:12:57+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://owovo.xyz/categories/%E6%83%85%E6%84%9F.html</loc>
     <lastmod>2019-10-21T11:12:57+08:00</lastmod>
   </url>
   
