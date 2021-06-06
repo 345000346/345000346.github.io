@@ -6,7 +6,16 @@
     <description>Recent content in Posts on LIGT&#39;S BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Feb 2021 22:41:14 +0800</lastBuildDate><atom:link href="https://owovo.xyz/post/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Jun 2021 00:18:25 +0800</lastBuildDate><atom:link href="https://owovo.xyz/post/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>（转载）有哪些事是男生很想让女朋友知道的？</title>
+      <link>https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%98%AF%E7%94%B7%E7%94%9F%E5%BE%88%E6%83%B3%E8%AE%A9%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9F%A5%E9%81%93%E7%9A%84.html</link>
+      <pubDate>Mon, 07 Jun 2021 00:18:25 +0800</pubDate>
+      
+      <guid>https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%98%AF%E7%94%B7%E7%94%9F%E5%BE%88%E6%83%B3%E8%AE%A9%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9F%A5%E9%81%93%E7%9A%84.html</guid>
+      <description>&lt;p&gt;本文转载自 —— &lt;a href=&#34;https://www.zhihu.com/question/426854994/answer/1866644532&#34;&gt;&lt;strong&gt;有哪些事是男生很想让女朋友知道的？ - 宏桑的回答 - 知乎&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>好好说话、有效沟通、相互包容、共同成长</title>
       <link>https://owovo.xyz/post/%E5%A5%BD%E5%A5%BD%E8%AF%B4%E8%AF%9D%E6%9C%89%E6%95%88%E6%B2%9F%E9%80%9A%E7%9B%B8%E4%BA%92%E5%8C%85%E5%AE%B9%E5%85%B1%E5%90%8C%E6%88%90%E9%95%BF.html</link>
@@ -43,15 +52,6 @@
       
       <guid>https://owovo.xyz/post/%E5%B0%8F%E7%B1%B310-Pro%E7%AE%80%E5%8D%95%E4%B8%8A%E6%89%8B%E4%BD%93%E9%AA%8C.html</guid>
       <description>&lt;p&gt;小米10 Pro简单上手体验，图懒得拍了，出不了门，开箱照网上到处都是。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用 Github Actions &#43; Hugo &#43; Github Pages搭建博客</title>
-      <link>https://owovo.xyz/post/%E4%BD%BF%E7%94%A8GithubActions&#43;Hugo&#43;GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</link>
-      <pubDate>Wed, 01 Jan 2020 13:14:18 +0800</pubDate>
-      
-      <guid>https://owovo.xyz/post/%E4%BD%BF%E7%94%A8GithubActions&#43;Hugo&#43;GithubPages%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</guid>
-      <description>&lt;p&gt;如果你想搭建自己的 Blog，但是又没有自己的 VPS、云服务器等，使用 Github Actions + Hugo + Github Pages搭建博客是最简单的选择。&lt;/p&gt;</description>
     </item>
     
   </channel>
