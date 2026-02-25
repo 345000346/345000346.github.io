@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">LIGT'S BLOG</title><subtitle type="html">分享一些日常、没事无聊的瞎想、一些常用的工具等</subtitle><updated>2026-02-24T16:12:19+00:00</updated><id>https://owovo.xyz/</id><link rel="alternate" type="text/html" href="https://owovo.xyz/"/><link rel="self" type="application/atom+xml" href="https://owovo.xyz/atom.xml"/><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.155.3">Hugo</generator><entry><title type="text">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">LIGT'S BLOG</title><subtitle type="html">分享一些日常、没事无聊的瞎想、一些常用的工具等</subtitle><updated>2026-02-25T04:36:20+00:00</updated><id>https://owovo.xyz/</id><link rel="alternate" type="text/html" href="https://owovo.xyz/"/><link rel="self" type="application/atom+xml" href="https://owovo.xyz/atom.xml"/><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.155.3">Hugo</generator><entry><title type="text">
 我们的小幸福 —— 记录领证的一天</title><link rel="alternate" type="text/html" href="https://owovo.xyz/post/%E6%88%91%E4%BB%AC%E7%9A%84%E5%B0%8F%E5%B9%B8%E7%A6%8F-%E8%AE%B0%E5%BD%95%E9%A2%86%E8%AF%81%E7%9A%84%E4%B8%80%E5%A4%A9/"/><id>https://owovo.xyz/post/%E6%88%91%E4%BB%AC%E7%9A%84%E5%B0%8F%E5%B9%B8%E7%A6%8F-%E8%AE%B0%E5%BD%95%E9%A2%86%E8%AF%81%E7%9A%84%E4%B8%80%E5%A4%A9/</id><updated>2023-09-06T04:53:51+08:00</updated><published>2023-09-06T04:53:51+08:00</published><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
 &lt;p&gt;领证啦！&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;领证啦！&lt;/p&gt;
@@ -585,38 +585,75 @@
 &lt;p&gt;2.选择后，会出现一个 yml 文件的编辑器，里面的内容不用理会；&lt;/p&gt;
 &lt;p&gt;3.我们参考 &lt;a href="https://github.com/peaceiris/actions-hugo"&gt;peaceiris/actions-hugo&lt;/a&gt; 和 &lt;a href="peaceiris/actions-gh-pages"&gt;peaceiris/actions-gh-pages&lt;/a&gt; 项目，编写自己的 workflow；&lt;/p&gt;
 &lt;p&gt;不废话，直接上代码&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-makefile" data-lang="makefile"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;name&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt; Github Pages &lt;span style="color:#75715e"&gt;#自动化的名称
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;on&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; push: &lt;span style="color:#75715e"&gt;# push 的时候触发&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; branches: &lt;span style="color:#75715e"&gt;# 那些分支需要触发&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - master
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;jobs&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; build:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; runs-on: ubuntu-latest &lt;span style="color:#75715e"&gt;# 镜像市场&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; steps:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - name: checkout &lt;span style="color:#75715e"&gt;# 步骤的名称&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; uses: actions/checkout@master &lt;span style="color:#75715e"&gt;#软件市场的名称&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# with: # 参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# submodules: true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - name: Setup Hugo &lt;span style="color:#75715e"&gt;# 安装 Hugo&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; uses: peaceiris/actions-hugo@v2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; with:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hugo-version: &lt;span style="color:#e6db74"&gt;&amp;#39;latest&amp;#39;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 使用Hugo最新版&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; extended: true
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - name: Build &lt;span style="color:#75715e"&gt;# 编译&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; run: hugo
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - name: Deploy &lt;span style="color:#75715e"&gt;# 部署&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; uses: peaceiris/actions-gh-pages@v3
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; with:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; DEPLOY_KEY: &lt;span style="color:#e6db74"&gt;${&lt;/span&gt;{ secrets.ACTIONS_DEPLOY_KEY &lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; EXTERNAL_REPOSITORY: 你的用户名/你的用户名.github.io
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; CNAME: &lt;span style="color:#75715e"&gt;#添加你的网站域名作CNAME以便解析&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; PUBLISH_BRANCH: master
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; PUBLISH_DIR: ./public
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; COMMIT_MESSAGE: &lt;span style="color:#e6db74"&gt;${&lt;/span&gt;{ github.event.head_commit.message &lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="四准备部署"&gt;四、准备部署&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-makefile" data-lang="makefile"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nf"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Github&lt;/span&gt; &lt;span class="n"&gt;Pages&lt;/span&gt; &lt;span class="c"&gt;#自动化的名称
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nf"&gt;on&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; push: &lt;span class="c1"&gt;# push 的时候触发&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; branches: &lt;span class="c1"&gt;# 那些分支需要触发&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - master
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nf"&gt;jobs&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; build:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; runs-on: ubuntu-latest &lt;span class="c1"&gt;# 镜像市场&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; steps:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - name: checkout &lt;span class="c1"&gt;# 步骤的名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; uses: actions/checkout@master &lt;span class="c1"&gt;#软件市场的名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# with: # 参数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# submodules: true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - name: Setup Hugo &lt;span class="c1"&gt;# 安装 Hugo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; uses: peaceiris/actions-hugo@v2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; hugo-version: &lt;span class="s1"&gt;&amp;#39;latest&amp;#39;&lt;/span&gt; &lt;span class="c1"&gt;# 使用Hugo最新版&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; extended: &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - name: Build &lt;span class="c1"&gt;# 编译&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; run: hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - name: Deploy &lt;span class="c1"&gt;# 部署&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; uses: peaceiris/actions-gh-pages@v3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; DEPLOY_KEY: &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="p"&gt;{ secrets.ACTIONS_DEPLOY_KEY &lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; EXTERNAL_REPOSITORY: 你的用户名/你的用户名.github.io
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; CNAME: &lt;span class="c1"&gt;#添加你的网站域名作CNAME以便解析&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; PUBLISH_BRANCH: master
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; PUBLISH_DIR: ./public
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; COMMIT_MESSAGE: &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="p"&gt;{ github.event.head_commit.message &lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="四准备部署"&gt;四、准备部署&lt;/h2&gt;
 &lt;p&gt;我们开发的项目和 Github Pages 是分开的，所以用了两个 Repository，接下来就是要在你将 Hugo文章推到 myBlog 这个 Repository 后，部署到 Github Pages.&lt;/p&gt;
 &lt;p&gt;首先我们要在你的电脑上安装 Git ，这是&lt;a href="https://git-scm.com/"&gt;官网&lt;/a&gt;，下载安装我就不多说了，一般直接下一步即可。&lt;/p&gt;
 &lt;h3 id="1生成提交代码用的-ssh-key"&gt;1.生成提交代码用的 &lt;em&gt;ssh key&lt;/em&gt;&lt;/h3&gt;
@@ -753,26 +790,56 @@ Non-authoritative answer:
 &lt;p&gt;本次介绍一下批量去除文件名中的空格、批量重命名的方法。&lt;/p&gt;
 &lt;h2 id="一批量去除文件名中的空格"&gt;一、批量去除文件名中的空格&lt;/h2&gt;
 &lt;p&gt;把以下代码保存成.bat 批处理文件，放到需要批量重命名的文件内，运行即可。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;@&lt;/span&gt;echo off&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;setlocal enabledelayedexpansion
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; &lt;span style="color:#f92672"&gt;/&lt;/span&gt;f &lt;span style="color:#e6db74"&gt;&amp;#34;delims=&amp;#34;&lt;/span&gt; &lt;span style="color:#f92672"&gt;%%&lt;/span&gt;i &lt;span style="color:#a6e22e"&gt;in&lt;/span&gt; (&lt;span style="color:#960050;background-color:#1e0010"&gt;&amp;#39;&lt;/span&gt;dir &lt;span style="color:#f92672"&gt;/&lt;/span&gt;s&lt;span style="color:#f92672"&gt;/&lt;/span&gt;b &lt;span style="color:#f92672"&gt;*&lt;/span&gt;.&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&amp;#39;&lt;/span&gt;) &lt;span style="color:#66d9ef"&gt;do&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; set &lt;span style="color:#e6db74"&gt;&amp;#34;foo=%%~nxi&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; set foo&lt;span style="color:#f92672"&gt;=!&lt;/span&gt;foo: &lt;span style="color:#f92672"&gt;=!&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; set foo&lt;span style="color:#f92672"&gt;=!&lt;/span&gt;foo: &lt;span style="color:#f92672"&gt;=!&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ren &lt;span style="color:#e6db74"&gt;&amp;#34;%%~fi&amp;#34;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;!foo!&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;exit
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="二批量重命名"&gt;二、批量重命名&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;setlocal&lt;/span&gt; &lt;span class="n"&gt;enabledelayedexpansion&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;delims=&amp;#34;&lt;/span&gt; &lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="nf"&gt;in&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;foo=%%~nxi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;=!&lt;/span&gt;&lt;span class="nl"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;=!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;=!&lt;/span&gt;&lt;span class="nl"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;=!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;%%~fi&amp;#34;&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;!foo!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="二批量重命名"&gt;二、批量重命名&lt;/h2&gt;
 &lt;p&gt;单个用 ren 命令，多个分行放到一个文本文档里，如：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ren &lt;span style="color:#a6e22e"&gt;demaxiya&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;01&lt;/span&gt;).jpg demaxiya01.jpg
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ren &lt;span style="color:#a6e22e"&gt;demaxiya&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;02&lt;/span&gt;).jpg demaxiya02.jpg
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ren &lt;span style="color:#a6e22e"&gt;demaxiya&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;03&lt;/span&gt;).jpg demaxiya03.jpg
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;保存在文件所在文件夹里，改为.bat 后缀，运行即可。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="nf"&gt;demaxiya&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="n"&gt;demaxiya01&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="nf"&gt;demaxiya&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="n"&gt;demaxiya02&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="nf"&gt;demaxiya&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="n"&gt;demaxiya03&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;保存在文件所在文件夹里，改为.bat 后缀，运行即可。&lt;/p&gt;
 &lt;p&gt;那么，问题来了，如果需重命名的文件较多，如何把众多文件名及新文件名放到文本文档里呢？一个个复制岂不累死？不用，看方法：&lt;/p&gt;
 &lt;p&gt;运行 CMD 调出 DOS 窗口，先用 “CD C:\XXX&amp;quot;定位到文件所在文件夹 XXX，再输入命令 “dir /b&amp;gt;rename.xls&amp;quot;，就会在 XXX 文件夹里生成一个 rename.xls 文档，里面列出了该文件夹中的所有文件名。然后，在其前面插入一列用 ren 填充，后面一列一一对应输入新文件名（可以用自动填充），最后这三列复制粘贴到文本文档里，就可以了。&lt;/p&gt;
 &lt;h2 id="三提取全部文件名"&gt;三、提取全部文件名&lt;/h2&gt;
 &lt;p&gt;把以下代码保存成.bat 批处理文件，放到需要批量重命名的文件内，运行即可。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DIR &lt;span style="color:#f92672"&gt;*&lt;/span&gt;.&lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#f92672"&gt;/&lt;/span&gt;B &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt;LIST.TXT
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category scheme="https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC/" term="脚本" label="脚本"/><category scheme="https://owovo.xyz/tags/Windows/" term="Windows" label="Windows"/><category scheme="https://owovo.xyz/tags/%E8%84%9A%E6%9C%AC/" term="脚本" label="脚本"/></entry><entry><title type="text">
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;DIR&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;LIST&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TXT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content><category scheme="https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC/" term="脚本" label="脚本"/><category scheme="https://owovo.xyz/tags/Windows/" term="Windows" label="Windows"/><category scheme="https://owovo.xyz/tags/%E8%84%9A%E6%9C%AC/" term="脚本" label="脚本"/></entry><entry><title type="text">
 （转载）男生真的可以爱一个女生很久吗</title><link rel="alternate" type="text/html" href="https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E7%94%B7%E7%94%9F%E7%9C%9F%E7%9A%84%E5%8F%AF%E4%BB%A5%E7%88%B1%E4%B8%80%E4%B8%AA%E5%A5%B3%E7%94%9F%E5%BE%88%E4%B9%85%E5%90%97/"/><id>https://owovo.xyz/post/%E8%BD%AC%E8%BD%BD%E7%94%B7%E7%94%9F%E7%9C%9F%E7%9A%84%E5%8F%AF%E4%BB%A5%E7%88%B1%E4%B8%80%E4%B8%AA%E5%A5%B3%E7%94%9F%E5%BE%88%E4%B9%85%E5%90%97/</id><updated>2019-09-05T14:19:55+08:00</updated><published>2019-09-05T14:19:55+08:00</published><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
 &lt;p&gt;本文转载自 —— &lt;a href="https://www.zhihu.com/question/317944434/answer/664843990"&gt;男生真的可以爱一个女生很久很久吗？ - 宏桑的回答 - 知乎&lt;/a&gt;&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;本文转载自 —— &lt;a href="https://www.zhihu.com/question/317944434/answer/664843990"&gt;男生真的可以爱一个女生很久很久吗？ - 宏桑的回答 - 知乎&lt;/a&gt;&lt;/p&gt;
