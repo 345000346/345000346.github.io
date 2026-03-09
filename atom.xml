@@ -1,495 +1,626 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">LIGT'S BLOG</title><subtitle type="html">分享一些日常、没事无聊的瞎想、一些常用的工具等</subtitle><updated>2026-03-08T15:03:23+00:00</updated><id>https://owovo.xyz/</id><link rel="alternate" type="text/html" href="https://owovo.xyz/"/><link rel="self" type="application/atom+xml" href="https://owovo.xyz/atom.xml"/><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.157.0">Hugo</generator><entry><title type="text">
-Impeccable.style 使用教程：17 条官方命令分别怎么用</title><link rel="alternate" type="text/html" href="https://owovo.xyz/post/Impeccable.style-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B17-%E6%9D%A1%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4%E5%88%86%E5%88%AB%E6%80%8E%E4%B9%88%E7%94%A8/"/><id>https://owovo.xyz/post/Impeccable.style-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B17-%E6%9D%A1%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4%E5%88%86%E5%88%AB%E6%80%8E%E4%B9%88%E7%94%A8/</id><updated>2026-03-08T17:30:00+08:00</updated><published>2026-03-08T17:30:00+08:00</published><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
-&lt;p&gt;如果你第一次看到 &lt;code&gt;Impeccable.style&lt;/code&gt;，很容易把它误解成一个“收集提示词的网站”。但它真正做的事情，其实更接近：给 AI coding agent 补上一套面向前端设计与体验优化的专业工作流。&lt;/p&gt;
-&lt;p&gt;简单说，它不是让你随便抛一句“帮我把页面做漂亮点”，而是把常见的设计动作拆成一组清晰命令：先审计、再评审、再收敛、再精修、再做适配和稳健性补强。这样一来，AI 的输出会更稳定，也更接近真正有经验的设计/前端协作流程。&lt;/p&gt;</summary><content type="html">
-&lt;p&gt;如果你第一次看到 &lt;code&gt;Impeccable.style&lt;/code&gt;，很容易把它误解成一个“收集提示词的网站”。但它真正做的事情，其实更接近：给 AI coding agent 补上一套面向前端设计与体验优化的专业工作流。&lt;/p&gt;
-&lt;p&gt;简单说，它不是让你随便抛一句“帮我把页面做漂亮点”，而是把常见的设计动作拆成一组清晰命令：先审计、再评审、再收敛、再精修、再做适配和稳健性补强。这样一来，AI 的输出会更稳定，也更接近真正有经验的设计/前端协作流程。&lt;/p&gt;
-&lt;p&gt;根据官网与官方 README，&lt;code&gt;Impeccable.style&lt;/code&gt; 当前的核心结构是 &lt;strong&gt;1 个核心 skill + 17 条官方命令&lt;/strong&gt;。本文不再混入通用开发命令，而是只围绕官方命令来写，并重点回答一个问题：&lt;strong&gt;这些命令到底该在什么时候用，具体怎么用？&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id="一先搞清楚impeccablestyle-到底是什么"&gt;一、先搞清楚：Impeccable.style 到底是什么&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Impeccable.style&lt;/code&gt; 的目标不是替你“生成一个看起来还行的页面”，而是让 AI 在做前端设计时：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><title type="text">LIGT'S BLOG</title><subtitle type="html">分享一些日常、没事无聊的瞎想、一些常用的工具等</subtitle><updated>2026-03-09T02:22:45+00:00</updated><id>https://owovo.xyz/</id><link rel="alternate" type="text/html" href="https://owovo.xyz/"/><link rel="self" type="application/atom+xml" href="https://owovo.xyz/atom.xml"/><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><generator uri="https://gohugo.io/" version="0.157.0">Hugo</generator><entry><title type="text">
+Impeccable.style 使用教程：新手怎么上手 17 个官方命令</title><link rel="alternate" type="text/html" href="https://owovo.xyz/post/Impeccable.style-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E6%96%B0%E6%89%8B%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B-17-%E4%B8%AA%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4/"/><id>https://owovo.xyz/post/Impeccable.style-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E6%96%B0%E6%89%8B%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B-17-%E4%B8%AA%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4/</id><updated>2026-03-08T17:30:00+08:00</updated><published>2026-03-08T17:30:00+08:00</published><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
+&lt;p&gt;如果你第一次接触 &lt;code&gt;Impeccable.style&lt;/code&gt;，很容易把它理解成“又一个帮 AI 把页面做漂亮的提示词包”。&lt;/p&gt;
+&lt;p&gt;但从官网首页和 cheatsheet 的写法来看，它更准确的定位其实是：&lt;strong&gt;一套给 AI coding tools 使用的前端设计 skills / commands&lt;/strong&gt;。它不是只给你几段 prompt，而是把“先审计界面、再统一设计、再补强适配与鲁棒性、最后做增强和精修”这些动作，拆成了 17 个可以直接调用的命令。&lt;/p&gt;
+&lt;p&gt;也就是说，&lt;code&gt;Impeccable.style&lt;/code&gt; 真正解决的问题不是“AI 会不会写页面”，而是：&lt;strong&gt;AI 做前端时，能不能更像一个真的懂界面质量、视觉层级和交互细节的搭档。&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;如果你第一次接触 &lt;code&gt;Impeccable.style&lt;/code&gt;，很容易把它理解成“又一个帮 AI 把页面做漂亮的提示词包”。&lt;/p&gt;
+&lt;p&gt;但从官网首页和 cheatsheet 的写法来看，它更准确的定位其实是：&lt;strong&gt;一套给 AI coding tools 使用的前端设计 skills / commands&lt;/strong&gt;。它不是只给你几段 prompt，而是把“先审计界面、再统一设计、再补强适配与鲁棒性、最后做增强和精修”这些动作，拆成了 17 个可以直接调用的命令。&lt;/p&gt;
+&lt;p&gt;也就是说，&lt;code&gt;Impeccable.style&lt;/code&gt; 真正解决的问题不是“AI 会不会写页面”，而是：&lt;strong&gt;AI 做前端时，能不能更像一个真的懂界面质量、视觉层级和交互细节的搭档。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章不再按“17 条命令逐条背诵”的方式来写，而是按&lt;strong&gt;新手上手教程&lt;/strong&gt;来讲：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;它到底是什么&lt;/li&gt;
+&lt;li&gt;怎么安装、怎么调用&lt;/li&gt;
+&lt;li&gt;第一次用时最推荐的起手方式&lt;/li&gt;
+&lt;li&gt;遇到不同问题时，该选哪条命令&lt;/li&gt;
+&lt;li&gt;最后再给你一份 17 条官方命令速查&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="一先用一句话理解impeccablestyle-是什么"&gt;一、先用一句话理解：Impeccable.style 是什么&lt;/h2&gt;
+&lt;p&gt;根据官网首页，&lt;code&gt;Impeccable.style&lt;/code&gt; 是一套面向 &lt;code&gt;Cursor&lt;/code&gt;、&lt;code&gt;Claude Code&lt;/code&gt;、&lt;code&gt;Gemini CLI&lt;/code&gt;、&lt;code&gt;Codex CLI&lt;/code&gt;、&lt;code&gt;VS Code Copilot&lt;/code&gt;、&lt;code&gt;Antigravity&lt;/code&gt;、&lt;code&gt;Kiro&lt;/code&gt; 等 AI coding tools 的设计增强能力。&lt;/p&gt;
+&lt;p&gt;它的重点不是“再造一个前端生成器”，而是：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;更少模板味、更少 AI 审美疲劳&lt;/li&gt;
-&lt;li&gt;更在意层级、可读性、可访问性与一致性&lt;/li&gt;
-&lt;li&gt;不只会“做漂亮”，还会做适配、性能、鲁棒性和 onboarding&lt;/li&gt;
-&lt;li&gt;能把页面优化动作拆成一条条可复用命令，而不是每次重新写长 prompt&lt;/li&gt;
+&lt;li&gt;在前端设计 skill 的基础上继续扩展&lt;/li&gt;
+&lt;li&gt;补充更明确的设计模式与反模式&lt;/li&gt;
+&lt;li&gt;把设计动作拆成 17 个 design skills / commands&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;如果你平时用 &lt;code&gt;Claude Code&lt;/code&gt;、&lt;code&gt;Codex CLI&lt;/code&gt;、&lt;code&gt;Cursor&lt;/code&gt;、&lt;code&gt;Gemini CLI&lt;/code&gt; 这一类 agent，这套命令最大的价值就是：&lt;strong&gt;它把“改界面”这件事从一句模糊需求，变成一套可复用流程。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id="二先安装再使用"&gt;二、先安装，再使用&lt;/h2&gt;
-&lt;p&gt;不同 agent 的安装方式略有区别。以 &lt;code&gt;Codex CLI&lt;/code&gt; 为例，官方 README 给出的安装方式是：&lt;/p&gt;
+&lt;p&gt;所以更准确的说法应该是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Impeccable.style&lt;/code&gt; 是一套给 AI coding agent 使用的前端设计技能包，而不是一个单纯收集美化 prompt 的网站。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="二新手先搞清楚它到底是-skill-还是-command"&gt;二、新手先搞清楚：它到底是 skill 还是 command&lt;/h2&gt;
+&lt;p&gt;官方资料里，这两种叫法都会出现。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在概念层面，它们是 &lt;strong&gt;design skills&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;在使用层面，它们通常表现为 &lt;strong&gt;slash commands&lt;/strong&gt;，比如 &lt;code&gt;/audit&lt;/code&gt;、&lt;code&gt;/polish&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以你完全可以这样理解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;本质上&lt;/strong&gt;：它是一组 skills&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调用时&lt;/strong&gt;：通常以 commands 的形式出现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这也是为什么官网会说它有 &lt;strong&gt;17 design skills&lt;/strong&gt;，而 cheatsheet 又会把它们展示成 &lt;code&gt;/audit&lt;/code&gt;、&lt;code&gt;/distill&lt;/code&gt;、&lt;code&gt;/bolder&lt;/code&gt; 这种斜杠命令。&lt;/p&gt;
+&lt;h2 id="三先装好再说官方安装方式与调用方式"&gt;三、先装好再说：官方安装方式与调用方式&lt;/h2&gt;
+&lt;h3 id="1-官网首页给出的主安装方式"&gt;1. 官网首页给出的主安装方式&lt;/h3&gt;
+&lt;p&gt;官网首页给出的主安装命令是：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:install https://impeccable.style/manifest.json
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills add pbakaus/impeccable
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;安装完成后，在 &lt;code&gt;Codex CLI&lt;/code&gt; 里通常这样调用：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;官网说明，这种方式会自动识别你正在使用的工具，并安装到对应位置。&lt;/p&gt;
+&lt;h3 id="2-claude-code-的安装入口"&gt;2. Claude Code 的安装入口&lt;/h3&gt;
+&lt;p&gt;官网首页还给了 &lt;code&gt;Claude Code&lt;/code&gt; 的安装路径：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:audit
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:polish
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:adapt
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/plugin marketplace add pbakaus/impeccable
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;而在官网 &lt;code&gt;cheatsheet&lt;/code&gt; 中，命令通常显示为更通用的写法，例如：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;然后：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开 &lt;code&gt;/plugin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;进入 &lt;code&gt;Discover&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;安装对应插件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="3-也支持手动安装"&gt;3. 也支持手动安装&lt;/h3&gt;
+&lt;p&gt;如果不走自动安装，官网 FAQ 也提到可以下载通用 ZIP，解压到项目目录。&lt;/p&gt;
+&lt;p&gt;FAQ 里提到的目录包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.cursor/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.claude/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.gemini/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.codex/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.agents/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-安装后怎么调用"&gt;4. 安装后怎么调用&lt;/h3&gt;
+&lt;p&gt;官方 cheatsheet 里的调用写法是这种形式：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
 &lt;/span&gt;&lt;span class="lnt"&gt;2
 &lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/distill
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bolder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也就是说，如果你只是想学会使用方式，直接记住：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入 &lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;找到对应命令&lt;/li&gt;
+&lt;li&gt;直接触发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就够了。&lt;/p&gt;
+&lt;h3 id="5-它不一定只能手动触发"&gt;5. 它不一定只能手动触发&lt;/h3&gt;
+&lt;p&gt;官网首页还提到，这些 skills 在相关场景里有时会自动应用；如果你想更明确地指定，也可以在提示里直接说希望 AI 使用对应的前端设计 skill。&lt;/p&gt;
+&lt;h2 id="四新手第一次用最推荐的不是17-条全试一遍"&gt;四、新手第一次用，最推荐的不是“17 条全试一遍”&lt;/h2&gt;
+&lt;p&gt;如果你今天第一次上手，我最建议的不是从头到尾把 17 条全点一遍，而是走一条&lt;strong&gt;最小路径&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/teach-impeccable
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit 或 /critique
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/normalize 或 /distill
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;为什么是这 4 步？&lt;/p&gt;
+&lt;h3 id="第一步teach-impeccable"&gt;第一步：&lt;code&gt;/teach-impeccable&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;它的作用是一次性收集项目设计上下文，并保存为持续生效的设计指南。&lt;/p&gt;
+&lt;p&gt;你可以把它理解成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先告诉 AI 这个项目是什么气质&lt;/li&gt;
+&lt;li&gt;先说明品牌、风格、语气、边界&lt;/li&gt;
+&lt;li&gt;以后少重复解释“我想要什么风格”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是最像“先把设计背景教给 AI”的一步。&lt;/p&gt;
+&lt;h3 id="第二步audit-或-critique"&gt;第二步：&lt;code&gt;/audit&lt;/code&gt; 或 &lt;code&gt;/critique&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;这一步不是改，而是先判断问题在哪。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你更关心 &lt;strong&gt;可访问性、性能、响应式、主题一致性&lt;/strong&gt;，先用 &lt;code&gt;/audit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果你更关心 &lt;strong&gt;视觉层级、信息架构、整体体验、情绪表达&lt;/strong&gt;，先用 &lt;code&gt;/critique&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你也可以简单记成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;audit&lt;/code&gt; 更像体检&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;critique&lt;/code&gt; 更像设计评审&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="第三步normalize-或-distill"&gt;第三步：&lt;code&gt;/normalize&lt;/code&gt; 或 &lt;code&gt;/distill&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;当你大致知道问题在哪之后，再决定是“统一”，还是“收掉”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果页面最大的问题是&lt;strong&gt;不一致、不像一个系统里做出来的&lt;/strong&gt;，用 &lt;code&gt;/normalize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果页面最大的问题是&lt;strong&gt;太满、太杂、太复杂&lt;/strong&gt;，用 &lt;code&gt;/distill&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这一步其实就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;要么收敛到系统里&lt;/li&gt;
+&lt;li&gt;要么提炼到更简洁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="第四步polish"&gt;第四步：&lt;code&gt;/polish&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;等结构和方向差不多稳定后，再用 &lt;code&gt;/polish&lt;/code&gt; 做最后一轮细节打磨。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/polish&lt;/code&gt; 更适合处理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对齐&lt;/li&gt;
+&lt;li&gt;间距&lt;/li&gt;
+&lt;li&gt;一致性&lt;/li&gt;
+&lt;li&gt;那些“不影响功能，但影响质感”的小问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以它更像上线前的 final pass，而不是起手命令。&lt;/p&gt;
+&lt;h2 id="五如果你不知道该用哪条命令就按问题来选"&gt;五、如果你不知道该用哪条命令，就按问题来选&lt;/h2&gt;
+&lt;p&gt;对于新手来说，最有效的记法不是背名字，而是记“我现在遇到的到底是哪种问题”。&lt;/p&gt;
+&lt;p&gt;先看这一张速查表：&lt;/p&gt;
+&lt;div class="table-container"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;你现在遇到的问题&lt;/th&gt;
+&lt;th&gt;更适合的命令&lt;/th&gt;
+&lt;th&gt;可以怎么理解&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;我根本不知道页面差在哪&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/audit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先做全面体检，找出质量问题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;我想知道它为什么看起来不够好&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/critique&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先做设计评审，看层级、节奏和体验&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面能用，但不像同一个产品做出来的&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/normalize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先把风格收回设计系统&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面太杂、太满、太难抓重点&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/distill&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先去掉不必要的复杂性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;文案、标签、错误提示说得不清楚&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/clarify&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先把 UX copy 讲明白&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;桌面端正常，但换设备就变形&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/adapt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先处理多设备、多场景适配&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;正常情况没问题，但边界情况扛不住&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/harden&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先补强错误态、溢出、多语言等问题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面加载慢、动画卡、图片重&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/optimize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先解决性能和流畅度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面方向没问题，但细节还不够顺&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/polish&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;最后一轮打磨对齐、间距和一致性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面太安全、太普通、没有记忆点&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/bolder&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;适度放大视觉冲击力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面太吵、太硬、强调过多&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/quieter&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先降噪，保留重点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面太灰、太白、太平&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/colorize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;增加更有策略的色彩表达&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面交互太“死”，没有反馈感&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/animate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;增加有目的的动效和微交互&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;页面已经能用，但缺少一点温度&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/delight&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;加一些更讨喜、更有记忆点的细节&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;做了很多页面，想开始沉淀系统&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/extract&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;提炼组件、tokens 和可复用模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;新用户第一次进来不知道该做什么&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/onboard&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;优化 onboarding、空状态和首次体验&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+&lt;h3 id="1-我根本不知道页面差在哪"&gt;1. 我根本不知道页面差在哪&lt;/h3&gt;
+&lt;p&gt;先用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;适合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;想做全面排查&lt;/li&gt;
+&lt;li&gt;想知道问题严重不严重&lt;/li&gt;
+&lt;li&gt;想先拿到一份偏质量维度的报告&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你更想知道“为什么它看起来不够好”，那就改用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/critique
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="2-页面能用但不像同一个产品做出来的"&gt;2. 页面能用，但不像同一个产品做出来的&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/normalize
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它更适合处理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按钮不统一&lt;/li&gt;
+&lt;li&gt;标题、卡片、间距风格漂移&lt;/li&gt;
+&lt;li&gt;新做的页面和旧页面不像一个系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-页面不是乱是太杂太满太难抓重点"&gt;3. 页面不是乱，是太杂、太满、太难抓重点&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/distill
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它的重点不是“加点装饰”，而是&lt;strong&gt;去掉不必要的复杂性&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;补充一点：官网更新记录提到，旧命令 &lt;code&gt;/simplify&lt;/code&gt; 已改名为 &lt;code&gt;/distill&lt;/code&gt;，主要是为了避开命令冲突。现在直接记 &lt;code&gt;/distill&lt;/code&gt; 就可以。&lt;/p&gt;
+&lt;h3 id="4-页面内容说得不够清楚"&gt;4. 页面内容说得不够清楚&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/clarify
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;适合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按钮文案太泛&lt;/li&gt;
+&lt;li&gt;表单提示不清楚&lt;/li&gt;
+&lt;li&gt;错误信息太硬或太模糊&lt;/li&gt;
+&lt;li&gt;空状态和引导文案不够明确&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这条命令处理的不是视觉，而是 UX copy。&lt;/p&gt;
+&lt;h3 id="5-桌面端还行但换设备就开始变形"&gt;5. 桌面端还行，但换设备就开始变形&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/adapt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;官方对它的定义不只是移动端适配，而是让设计在不同屏幕、设备、上下文和平台里都成立。&lt;/p&gt;
+&lt;h3 id="6-页面正常时没问题但边界情况扛不住"&gt;6. 页面正常时没问题，但边界情况扛不住&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/harden
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;适合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;长标题、长用户名把布局撑坏&lt;/li&gt;
+&lt;li&gt;多语言文本溢出&lt;/li&gt;
+&lt;li&gt;错误态、空状态处理不够完整&lt;/li&gt;
+&lt;li&gt;你希望界面更接近生产可用状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="7-页面方向没问题但有点粗糙"&gt;7. 页面方向没问题，但有点粗糙&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这条命令特别适合最后一轮收尾，而不是一开始就用。&lt;/p&gt;
+&lt;h3 id="8-页面加载慢动画卡图片重"&gt;8. 页面加载慢、动画卡、图片重&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/optimize
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它关注的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;loading speed&lt;/li&gt;
+&lt;li&gt;rendering&lt;/li&gt;
+&lt;li&gt;animations&lt;/li&gt;
+&lt;li&gt;images&lt;/li&gt;
+&lt;li&gt;bundle size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;也就是“快不快、顺不顺”。&lt;/p&gt;
+&lt;h3 id="9-页面太安全太普通没记忆点"&gt;9. 页面太安全、太普通、没记忆点&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bolder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它的重点是：&lt;strong&gt;放大过于保守的设计&lt;/strong&gt;，让页面更有冲击力，但不破坏可用性。&lt;/p&gt;
+&lt;h3 id="10-页面太吵太满太有攻击性"&gt;10. 页面太吵、太满、太有攻击性&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/quieter
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它不是让页面变无聊，而是让页面&lt;strong&gt;降噪、收力、保留重点&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id="11-页面太灰太白太平"&gt;11. 页面太灰、太白、太平&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/colorize
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它适合给本来过于单色的界面增加更有策略的色彩表达。&lt;/p&gt;
+&lt;h3 id="12-交互没有反馈感页面有点死"&gt;12. 交互没有反馈感，页面有点“死”&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/animate
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这条命令的重点不是“多加动画”，而是用&lt;strong&gt;有目的的 motion / micro-interactions&lt;/strong&gt; 提升可用性与愉悦感。&lt;/p&gt;
+&lt;h3 id="13-页面功能有了但缺少一点温度和记忆点"&gt;13. 页面功能有了，但缺少一点温度和记忆点&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/delight
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它最适合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空状态&lt;/li&gt;
+&lt;li&gt;成功提示&lt;/li&gt;
+&lt;li&gt;首次体验&lt;/li&gt;
+&lt;li&gt;那些可以加一点人格感的小地方&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="14-做了一堆页面后想沉淀设计系统"&gt;14. 做了一堆页面后，想沉淀设计系统&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/extract
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它处理的不是单页微调，而是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提炼组件&lt;/li&gt;
+&lt;li&gt;提炼 design tokens&lt;/li&gt;
+&lt;li&gt;提炼可复用模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="15-新用户第一次进来不知道干嘛"&gt;15. 新用户第一次进来不知道干嘛&lt;/h3&gt;
+&lt;p&gt;用：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/onboard
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它更偏 onboarding、空状态和首次使用体验，不是普通意义上的“美化页面”。&lt;/p&gt;
+&lt;h2 id="六按官方-cheatsheet-来看最值得新手记住的几组关系"&gt;六、按官方 cheatsheet 来看，最值得新手记住的几组关系&lt;/h2&gt;
+&lt;p&gt;官方 cheatsheet 不只是列出 17 条命令，还隐含了一些常见搭配关系。新手只要记住下面几组，就已经够用了。&lt;/p&gt;
+&lt;h3 id="1-audit-和-critique-不是一回事"&gt;1. &lt;code&gt;audit&lt;/code&gt; 和 &lt;code&gt;critique&lt;/code&gt; 不是一回事&lt;/h3&gt;
+&lt;p&gt;如果你想知道：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;有没有问题&lt;/strong&gt;，先用 &lt;code&gt;/audit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;为什么不够好&lt;/strong&gt;，更适合 &lt;code&gt;/critique&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-normalize-和-distill-也不是一回事"&gt;2. &lt;code&gt;normalize&lt;/code&gt; 和 &lt;code&gt;distill&lt;/code&gt; 也不是一回事&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;normalize&lt;/code&gt;：把东西统一回设计系统&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;distill&lt;/code&gt;：把东西简化到更本质的表达&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个偏一致性，一个偏去复杂化。&lt;/p&gt;
+&lt;h3 id="3-bolder-和-quieter-是一对方向相反的命令"&gt;3. &lt;code&gt;bolder&lt;/code&gt; 和 &lt;code&gt;quieter&lt;/code&gt; 是一对方向相反的命令&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;页面太保守，用 &lt;code&gt;/bolder&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;页面太吵太硬，用 &lt;code&gt;/quieter&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;先判断自己需要“加力”还是“降噪”，比盲目增强更重要。&lt;/p&gt;
+&lt;h3 id="4-harden-和-optimize-很适合放在上线前"&gt;4. &lt;code&gt;harden&lt;/code&gt; 和 &lt;code&gt;optimize&lt;/code&gt; 很适合放在上线前&lt;/h3&gt;
+&lt;p&gt;一个负责稳，一个负责快。&lt;/p&gt;
+&lt;p&gt;如果你已经接近交付，可以这样想：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/harden
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/optimize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="5-normalizeclarifyadapt-经常是同一类问题链条"&gt;5. &lt;code&gt;normalize&lt;/code&gt;、&lt;code&gt;clarify&lt;/code&gt;、&lt;code&gt;adapt&lt;/code&gt; 经常是同一类问题链条&lt;/h3&gt;
+&lt;p&gt;官方 cheatsheet 里，这几条关系比较近。也就是说，很多界面问题并不只是“视觉不统一”，还常常同时包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文案不清楚&lt;/li&gt;
+&lt;li&gt;不同设备不成立&lt;/li&gt;
+&lt;li&gt;体验链路不顺&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="七17-条官方命令速查"&gt;七、17 条官方命令速查&lt;/h2&gt;
+&lt;p&gt;下面这份速查表，尽量基于官网/cheatsheet 的表述整理。&lt;/p&gt;
+&lt;h3 id="system"&gt;System&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/teach-impeccable&lt;/code&gt;：一次性收集项目设计上下文，并保存到 AI 配置中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/extract&lt;/code&gt;：提炼并整合可复用组件、design tokens 和设计模式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/onboard&lt;/code&gt;：优化 onboarding、空状态和首次使用体验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="diagnostic"&gt;Diagnostic&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/audit&lt;/code&gt;：全面审计界面质量，覆盖可访问性、性能、主题一致性和响应式设计&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/critique&lt;/code&gt;：从 UX 视角评估视觉层级、信息架构、情绪表达和整体设计质量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="quality"&gt;Quality&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/normalize&lt;/code&gt;：让设计匹配现有设计系统并保持一致性&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/polish&lt;/code&gt;：上线前做最后一轮对齐、间距、细节和一致性打磨&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/optimize&lt;/code&gt;：优化加载速度、渲染、动画、图片和包体&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/harden&lt;/code&gt;：补强错误处理、i18n、文本溢出和边界情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="adaptation"&gt;Adaptation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/clarify&lt;/code&gt;：改善 UX copy、错误提示、微文案、标签和说明&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/distill&lt;/code&gt;：去掉不必要复杂性，把设计提炼到更清晰的核心表达&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/adapt&lt;/code&gt;：让设计适配不同设备、屏幕和使用上下文&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="intensity"&gt;Intensity&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/quieter&lt;/code&gt;：降低过于强烈的视觉表达，减少攻击性&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/bolder&lt;/code&gt;：放大过于保守的设计，让它更有冲击力和存在感&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="enhancement"&gt;Enhancement&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/animate&lt;/code&gt;：用有目的的动画和微交互提升体验&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/colorize&lt;/code&gt;：给过于单色的界面增加更有策略的色彩表达&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/delight&lt;/code&gt;：加入惊喜感、个性和更讨喜的细节&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="八我建议新手这样开始"&gt;八、我建议新手这样开始&lt;/h2&gt;
+&lt;p&gt;如果你今天第一次用 &lt;code&gt;Impeccable.style&lt;/code&gt;，不需要一上来就研究所有命令。最稳的起步方式通常是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/teach-impeccable
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/normalize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果你更关心体验和视觉，而不是技术质量，那第二步可以把 &lt;code&gt;/audit&lt;/code&gt; 换成 &lt;code&gt;/critique&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;等你熟一点之后，再按问题补：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/clarify
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/adapt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/harden
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/optimize
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;你可以简单理解为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官网 cheatsheet 展示的是“通用命令名”&lt;/li&gt;
-&lt;li&gt;如果你用的是 &lt;code&gt;Codex CLI&lt;/code&gt;，通常要写成 &lt;code&gt;/prompts:命令名&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="三先记住一条主线不要死背-17-条命令"&gt;三、先记住一条主线：不要死背 17 条命令&lt;/h2&gt;
-&lt;p&gt;最好的记法不是从头到尾硬背，而是先把它们分成 5 组：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;初始化&lt;/strong&gt;：先告诉 AI 你的项目设计语境&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;诊断&lt;/strong&gt;：先看问题在哪，而不是直接乱改&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;收敛&lt;/strong&gt;：把杂乱的界面统一起来&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;增强&lt;/strong&gt;：在稳定基础上增加质感、色彩、动效与记忆点&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工程完善&lt;/strong&gt;：处理适配、性能、边界情况、复用与引导&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;带着这个思路，17 条命令就不难用了。&lt;/p&gt;
-&lt;h2 id="四17-条官方命令分别怎么用"&gt;四、17 条官方命令分别怎么用&lt;/h2&gt;
-&lt;p&gt;下面的“作用”和“适用场景”以官方命令名称与官方描述为基础，再加上实战使用时更容易理解的中文归纳。本文示例统一使用 &lt;code&gt;Codex CLI&lt;/code&gt; 语法。&lt;/p&gt;
-&lt;h3 id="1-promptsteach-impeccable"&gt;1. &lt;code&gt;/prompts:teach-impeccable&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 一次性收集项目的设计背景、风格偏好、品牌约束和上下文，并保存为后续优化的依据。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一次在一个新项目里使用 &lt;code&gt;Impeccable.style&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;你的站点有明确品牌风格、配色、字体、受众约束&lt;/li&gt;
-&lt;li&gt;你不想每次都重新解释“我想要什么风格”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:teach-impeccable
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;最适合的理解方式：&lt;/strong&gt; 它不是“开始优化页面”的命令，而是“先把审美和设计背景教给 AI”。通常一个项目做一次就够了。&lt;/p&gt;
-&lt;h3 id="2-promptsaudit"&gt;2. &lt;code&gt;/prompts:audit&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 做全面审计，重点看可访问性、性能、主题一致性和响应式设计问题。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;你不知道页面到底差在哪&lt;/li&gt;
-&lt;li&gt;页面“能用”，但总觉得哪里不对&lt;/li&gt;
-&lt;li&gt;上线前想做一轮系统排查&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:audit 登录页与首页，重点看可访问性、移动端排版和主题一致性
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;它和 &lt;code&gt;/prompts:critique&lt;/code&gt; 的区别：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;audit&lt;/code&gt; 更像“技术与质量体检”&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;critique&lt;/code&gt; 更像“设计与体验点评”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="3-promptscritique"&gt;3. &lt;code&gt;/prompts:critique&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 从 UX 视角评估视觉层级、信息架构、情绪表达和整体设计质量。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面没有明显 bug，但体验普通&lt;/li&gt;
-&lt;li&gt;你想知道“为什么它看起来没吸引力”&lt;/li&gt;
-&lt;li&gt;想先听 AI 的设计评审意见，再决定改哪&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:critique 评审这篇文章页的首屏、标题层级、目录可读性和整体节奏
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; &lt;code&gt;critique&lt;/code&gt; 关心“设计是不是好”，不只是“有没有问题”。&lt;/p&gt;
-&lt;h3 id="4-promptsnormalize"&gt;4. &lt;code&gt;/prompts:normalize&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 把界面统一到设计系统和现有规范里，减少风格漂移。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面里按钮、间距、颜色、卡片风格不统一&lt;/li&gt;
-&lt;li&gt;一个功能是后来补进去的，看起来和全站不像一套东西&lt;/li&gt;
-&lt;li&gt;你已经有设计系统，想让 AI 按系统收敛&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:normalize 把这个设置页统一到现有设计系统，重点收敛按钮、表单间距和标题样式
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;适合搭配：&lt;/strong&gt; 通常接在 &lt;code&gt;audit&lt;/code&gt; 或 &lt;code&gt;critique&lt;/code&gt; 后面用。&lt;/p&gt;
-&lt;h3 id="5-promptspolish"&gt;5. &lt;code&gt;/prompts:polish&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 做上线前精修，补齐那些“不影响功能，但影响质感”的细节问题。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;功能已经完成，页面也基本成形&lt;/li&gt;
-&lt;li&gt;你想做最后一轮细节打磨&lt;/li&gt;
-&lt;li&gt;间距、对齐、层级、细节一致性还有提升空间&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:polish 精修这篇文章页，重点看标题区、目录、引用块、代码块和底部导航的细节统一性
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; &lt;code&gt;polish&lt;/code&gt; 不是大改结构，而是“从 80 分打磨到 90 分以上”。&lt;/p&gt;
-&lt;h3 id="6-promptsdistill"&gt;6. &lt;code&gt;/prompts:distill&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 去掉多余复杂性，把设计还原到更清晰、更必要的核心表达。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面元素很多，但主次不清&lt;/li&gt;
-&lt;li&gt;功能叠加后开始显得拥挤&lt;/li&gt;
-&lt;li&gt;你怀疑自己“加太多了”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:distill 简化这个后台列表页，减少视觉噪音，保留最重要的信息与操作
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;补充：&lt;/strong&gt; 官方在 &lt;code&gt;2026-03-04&lt;/code&gt; 将旧命令 &lt;code&gt;/simplify&lt;/code&gt; 更名为 &lt;code&gt;/distill&lt;/code&gt;，如果你看到旧文章写的是 &lt;code&gt;/simplify&lt;/code&gt;，基本可以视为旧版本内容。&lt;/p&gt;
-&lt;h3 id="7-promptsclarify"&gt;7. &lt;code&gt;/prompts:clarify&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 优化不清晰的文案、错误提示、标签、说明文案和操作提示。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用户看得懂页面，但不明白下一步怎么做&lt;/li&gt;
-&lt;li&gt;表单提示、错误信息太生硬或太模糊&lt;/li&gt;
-&lt;li&gt;按钮文案、标题文案、空状态文案不够明确&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:clarify 优化登录流程里的按钮文案、错误提示、验证码说明和空状态提示
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; 界面不只是视觉问题，很多时候其实是“话没说清楚”。&lt;/p&gt;
-&lt;h3 id="8-promptsoptimize"&gt;8. &lt;code&gt;/prompts:optimize&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 优化界面性能，包括加载速度、渲染、动画、图片和包体等。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面动画卡顿&lt;/li&gt;
-&lt;li&gt;首屏加载慢&lt;/li&gt;
-&lt;li&gt;图片很多、体积较大&lt;/li&gt;
-&lt;li&gt;做完设计后，想把体验速度提上去&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:optimize 优化首页性能，重点关注首屏渲染、图片加载和不必要的动画开销
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;适合放在什么时候：&lt;/strong&gt; 通常在视觉方向稳定后再做，不要一开始就和大改布局混在一起。&lt;/p&gt;
-&lt;h3 id="9-promptsharden"&gt;9. &lt;code&gt;/prompts:harden&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 提升界面的鲁棒性，包含错误处理、国际化、文本溢出、边界情况等。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面在正常场景下没问题，但极端情况下容易崩&lt;/li&gt;
-&lt;li&gt;有长标题、长用户名、多语言文案、空数据场景&lt;/li&gt;
-&lt;li&gt;想让设计更接近“可上线”状态&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:harden 补强文章页和搜索页的边界情况，重点检查长标题、空结果、多语言文本和移动端溢出
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; &lt;code&gt;harden&lt;/code&gt; 负责把“看起来能用”变成“真的扛得住”。&lt;/p&gt;
-&lt;h3 id="10-promptsanimate"&gt;10. &lt;code&gt;/prompts:animate&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 增加有目的的动效和微交互，让界面更顺滑、更有反馈，而不是纯炫技。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面太“死”，交互没有反馈感&lt;/li&gt;
-&lt;li&gt;卡片、弹层、导航切换缺少层次&lt;/li&gt;
-&lt;li&gt;你希望界面更灵动，但不想过度动画化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:animate 为首页卡片、目录跳转和按钮交互增加克制但有价值的动效
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; &lt;code&gt;animate&lt;/code&gt; 强调“purposeful animations”，不是加越多越好。&lt;/p&gt;
-&lt;h3 id="11-promptscolorize"&gt;11. &lt;code&gt;/prompts:colorize&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 给过于单调的界面加入更有策略的色彩，让页面更有识别度和情绪。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面太灰、太白、太平&lt;/li&gt;
-&lt;li&gt;功能已经清楚，但缺少视觉记忆点&lt;/li&gt;
-&lt;li&gt;你想增加层次感，却不想直接大改布局&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:colorize 为文章页和标签页增加更有层次的色彩策略，但保持可读性与克制感
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;它适合什么阶段：&lt;/strong&gt; 已有基础样式后，再用它增强表达会更稳。&lt;/p&gt;
-&lt;h3 id="12-promptsbolder"&gt;12. &lt;code&gt;/prompts:bolder&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 在可用性的前提下，让过于保守的设计更有冲击力和个性。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面太安全、太普通、没有记忆点&lt;/li&gt;
-&lt;li&gt;你想做更鲜明的品牌感或主视觉&lt;/li&gt;
-&lt;li&gt;当前设计没有错，但“不出彩”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:bolder 让首页首屏更有冲击力，但不要破坏当前内容可读性
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; &lt;code&gt;bolder&lt;/code&gt; 是“更敢一点”，不是“更乱一点”。&lt;/p&gt;
-&lt;h3 id="13-promptsquieter"&gt;13. &lt;code&gt;/prompts:quieter&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 给过于喧闹、过于张扬的设计降噪，保留重点，减少压迫感。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面颜色太多、阴影太重、装饰太杂&lt;/li&gt;
-&lt;li&gt;用户第一眼不知道该看哪里&lt;/li&gt;
-&lt;li&gt;你已经“做过头”了&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:quieter 降低这个营销页的视觉噪音，弱化不必要的强调，让主 CTA 更清楚
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;和 &lt;code&gt;distill&lt;/code&gt; 的区别：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;distill&lt;/code&gt; 偏“简化结构与表达”&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;quieter&lt;/code&gt; 偏“降低视觉攻击性”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="14-promptsdelight"&gt;14. &lt;code&gt;/prompts:delight&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 增加令人愉快、带点个性的细节，让页面更有温度和记忆点。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;页面已经稳定，但有点“只有功能，没有感受”&lt;/li&gt;
-&lt;li&gt;想增加惊喜感、品牌性格或更友好的情绪表达&lt;/li&gt;
-&lt;li&gt;onboarding、空状态、加载态尤其适合用它&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:delight 为空状态、成功提示和首次访问体验加入一点轻巧但不过火的惊喜感
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; &lt;code&gt;delight&lt;/code&gt; 做的是“讨喜”，不是“花哨”。&lt;/p&gt;
-&lt;h3 id="15-promptsextract"&gt;15. &lt;code&gt;/prompts:extract&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 提炼可复用组件、设计 token 和设计模式，强化设计系统。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;你发现很多页面在重复写同样的卡片、标签、提示块&lt;/li&gt;
-&lt;li&gt;设计已经跑了一阵子，开始积累重复样式&lt;/li&gt;
-&lt;li&gt;想从“单页优化”走向“系统化复用”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:extract 从当前文章页、列表页和搜索页中提炼可复用组件与样式模式
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;适合搭配：&lt;/strong&gt; &lt;code&gt;normalize&lt;/code&gt; 之后尤其适合做 &lt;code&gt;extract&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id="16-promptsadapt"&gt;16. &lt;code&gt;/prompts:adapt&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 让设计在不同设备、屏幕尺寸、上下文和平台里都成立。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;桌面端还行，移动端开始变形&lt;/li&gt;
-&lt;li&gt;平板、窄屏、超宽屏表现不一致&lt;/li&gt;
-&lt;li&gt;同一界面需要兼顾不同使用场景&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:adapt 让文章页、目录和代码块在手机、平板和桌面端都保持良好阅读体验
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;一句话记忆：&lt;/strong&gt; &lt;code&gt;adapt&lt;/code&gt; 关注的是“跨设备成立”，不是单一屏幕好看。&lt;/p&gt;
-&lt;h3 id="17-promptsonboard"&gt;17. &lt;code&gt;/prompts:onboard&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 优化 onboarding、空状态、首次使用体验和引导路径。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;什么时候用：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用户第一次进入页面时不知该做什么&lt;/li&gt;
-&lt;li&gt;空状态太冷、太空、没有方向&lt;/li&gt;
-&lt;li&gt;新功能上线后，用户理解成本高&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;怎么用：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:onboard 优化搜索页和标签页的首次使用体验，补充空状态说明与行动引导
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;它最容易出效果的地方：&lt;/strong&gt; 新用户第一眼接触到的页面。&lt;/p&gt;
-&lt;h2 id="五新手最实用的-3-套组合"&gt;五、新手最实用的 3 套组合&lt;/h2&gt;
-&lt;p&gt;如果你刚开始用，不需要一次把 17 条全用上。先记住下面 3 套组合就够了。&lt;/p&gt;
-&lt;h3 id="组合-1给旧页面做一轮系统优化"&gt;组合 1：给旧页面做一轮系统优化&lt;/h3&gt;
+&lt;/div&gt;&lt;p&gt;最后如果你觉得页面已经稳定，只是想增强气质和记忆点，再考虑：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
 &lt;/span&gt;&lt;span class="lnt"&gt;2
 &lt;/span&gt;&lt;span class="lnt"&gt;3
 &lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:audit
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:critique
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:normalize
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:polish
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bolder
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/quieter
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/colorize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/animate
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/delight
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;适合页面已经存在，但你不知道从哪改起的时候。&lt;/p&gt;
-&lt;h3 id="组合-2把页面做得更有气质但别过火"&gt;组合 2：把页面做得更有气质，但别过火&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:colorize
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:quieter
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:delight
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:animate
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;适合你觉得页面太平、太冷、太普通，但又不想一下子变得很夸张的时候。&lt;/p&gt;
-&lt;h3 id="组合-3准备上线前的最后一轮收尾"&gt;组合 3：准备上线前的最后一轮收尾&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:adapt
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:harden
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:optimize
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:polish
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;适合功能与样式都差不多定了，准备进入“上线状态”的时候。&lt;/p&gt;
-&lt;h2 id="六最容易踩的几个坑"&gt;六、最容易踩的几个坑&lt;/h2&gt;
-&lt;h3 id="1-只会用-promptspolish"&gt;1. 只会用 &lt;code&gt;/prompts:polish&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;很多人最爱用 &lt;code&gt;polish&lt;/code&gt;，因为它听起来最像“帮我把页面弄好看”。但如果页面结构本身就乱，或者根本不清楚问题在哪，先 &lt;code&gt;polish&lt;/code&gt; 往往效果一般。更稳的方式通常是：先 &lt;code&gt;audit&lt;/code&gt; 或 &lt;code&gt;critique&lt;/code&gt;，再决定收敛还是增强。&lt;/p&gt;
-&lt;h3 id="2-把-audit-和-critique-当成一回事"&gt;2. 把 &lt;code&gt;audit&lt;/code&gt; 和 &lt;code&gt;critique&lt;/code&gt; 当成一回事&lt;/h3&gt;
-&lt;p&gt;这两个命令很像，但视角不同：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;这比“把 17 条全当成美化命令”更接近官方资料真正呈现出来的结构。&lt;/p&gt;
+&lt;h2 id="九总结"&gt;九、总结&lt;/h2&gt;
+&lt;p&gt;如果只用一句话总结：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Impeccable.style&lt;/code&gt; 不是一个单纯的前端美化 prompt 包，而是一套把设计审计、统一、适配、补强、增强和系统沉淀拆成明确命令的 AI 前端设计技能集合。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对新手来说，最重要的不是死背 17 个名字，而是先搞清楚这几个顺序：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;audit&lt;/code&gt; 偏质量、可访问性、性能、响应式&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;critique&lt;/code&gt; 偏视觉层级、信息架构、整体体验&lt;/li&gt;
+&lt;li&gt;先建立上下文：&lt;code&gt;/teach-impeccable&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再判断问题：&lt;code&gt;/audit&lt;/code&gt; 或 &lt;code&gt;/critique&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再决定统一还是简化：&lt;code&gt;/normalize&lt;/code&gt; 或 &lt;code&gt;/distill&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;最后精修：&lt;code&gt;/polish&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;如果你想知道“有没有问题”，先 &lt;code&gt;audit&lt;/code&gt;；如果你想知道“为什么不够好”，用 &lt;code&gt;critique&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id="3-一上来就用-bolder"&gt;3. 一上来就用 &lt;code&gt;bolder&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;页面还没统一、信息还没理顺时，先做“更大胆”通常会放大混乱。一般更好的顺序是：先 &lt;code&gt;normalize&lt;/code&gt; 或 &lt;code&gt;distill&lt;/code&gt;，再考虑 &lt;code&gt;bolder&lt;/code&gt;、&lt;code&gt;colorize&lt;/code&gt;、&lt;code&gt;delight&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id="4-忽略-harden-和-adapt"&gt;4. 忽略 &lt;code&gt;harden&lt;/code&gt; 和 &lt;code&gt;adapt&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;很多 AI 优化只盯着视觉，但真实上线时，经常是边界情况、长文本、手机端适配先出问题。&lt;code&gt;harden&lt;/code&gt; 和 &lt;code&gt;adapt&lt;/code&gt; 往往不是最显眼的命令，却是最接近实际交付质量的命令。&lt;/p&gt;
-&lt;h2 id="七我建议你这样开始"&gt;七、我建议你这样开始&lt;/h2&gt;
-&lt;p&gt;如果你今天第一次接触 &lt;code&gt;Impeccable.style&lt;/code&gt;，最推荐的起步方式不是把 17 条命令都试一遍，而是按下面这条最小路径走：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:teach-impeccable
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:audit
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:normalize
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/prompts:polish
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这条路径的好处是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;先建立设计上下文&lt;/li&gt;
-&lt;li&gt;再找问题&lt;/li&gt;
-&lt;li&gt;再统一风格&lt;/li&gt;
-&lt;li&gt;最后做精修&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;等你对这套节奏熟了，再去加入 &lt;code&gt;clarify&lt;/code&gt;、&lt;code&gt;adapt&lt;/code&gt;、&lt;code&gt;harden&lt;/code&gt;、&lt;code&gt;delight&lt;/code&gt;、&lt;code&gt;extract&lt;/code&gt; 这类更细分的命令，会容易很多。&lt;/p&gt;
-&lt;h2 id="八总结"&gt;八、总结&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Impeccable.style&lt;/code&gt; 真正有价值的地方，不是“提供了 17 条看起来很酷的 prompt”，而是把 AI 做前端设计这件事拆成了一套更专业的动作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;先理解项目气质&lt;/li&gt;
-&lt;li&gt;再诊断问题&lt;/li&gt;
-&lt;li&gt;再统一风格&lt;/li&gt;
-&lt;li&gt;再增强质感&lt;/li&gt;
-&lt;li&gt;最后补齐适配、性能、边界与引导&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;如果你过去总觉得 AI 做出来的页面“能看，但不耐看；能用，但不够稳”，那这套命令很值得认真试一遍。&lt;/p&gt;
-&lt;p&gt;我建议你先不要贪多，先从 &lt;code&gt;teach-impeccable + audit + normalize + polish&lt;/code&gt; 开始。只要这 4 步用顺了，你和 AI 一起做前端设计的质量，通常就会明显上一个台阶。&lt;/p&gt;
+&lt;p&gt;把这条主线跑顺了，再去加 &lt;code&gt;clarify&lt;/code&gt;、&lt;code&gt;adapt&lt;/code&gt;、&lt;code&gt;harden&lt;/code&gt;、&lt;code&gt;optimize&lt;/code&gt;、&lt;code&gt;bolder&lt;/code&gt;、&lt;code&gt;delight&lt;/code&gt; 这些命令，会容易很多。&lt;/p&gt;
 &lt;h2 id="参考链接"&gt;参考链接&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;官网：&lt;a href="https://impeccable.style/"&gt;https://impeccable.style/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官网首页：&lt;a href="https://impeccable.style/#hero"&gt;https://impeccable.style/#hero&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;官方命令速查：&lt;a href="https://impeccable.style/cheatsheet"&gt;https://impeccable.style/cheatsheet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;官方仓库：&lt;a href="https://github.com/pbakaus/impeccable"&gt;https://github.com/pbakaus/impeccable&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;说明：本文内容基于 2026 年 3 月 8 日可访问的官网、cheatsheet 与官方 README 整理；其中“什么时候用”“如何搭配使用”属于结合官方描述做的实战归纳。&lt;/p&gt;
-&lt;/blockquote&gt;</content><category scheme="https://owovo.xyz/categories/%E5%B7%A5%E5%85%B7/" term="工具" label="工具"/><category scheme="https://owovo.xyz/tags/AI/" term="AI" label="AI"/><category scheme="https://owovo.xyz/tags/%E8%AE%BE%E8%AE%A1/" term="设计" label="设计"/><category scheme="https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7/" term="工具" label="工具"/><category scheme="https://owovo.xyz/tags/Codex-CLI/" term="Codex CLI" label="Codex CLI"/><category scheme="https://owovo.xyz/tags/Claude-Code/" term="Claude Code" label="Claude Code"/></entry><entry><title type="text">
+&lt;p&gt;说明：本文基于 2026 年 3 月 9 日可访问的官网首页与 cheatsheet 整理；文中对命令用途的解释尽量贴近官方表述，少量“怎么理解”“适合什么时候用”属于基于官方描述做的中文归纳。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category scheme="https://owovo.xyz/categories/%E5%B7%A5%E5%85%B7/" term="工具" label="工具"/><category scheme="https://owovo.xyz/tags/AI/" term="AI" label="AI"/><category scheme="https://owovo.xyz/tags/%E8%AE%BE%E8%AE%A1/" term="设计" label="设计"/><category scheme="https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7/" term="工具" label="工具"/><category scheme="https://owovo.xyz/tags/Impeccable.style/" term="Impeccable.style" label="Impeccable.style"/><category scheme="https://owovo.xyz/tags/Claude-Code/" term="Claude Code" label="Claude Code"/></entry><entry><title type="text">
 我们的小幸福 —— 记录领证的一天</title><link rel="alternate" type="text/html" href="https://owovo.xyz/post/%E6%88%91%E4%BB%AC%E7%9A%84%E5%B0%8F%E5%B9%B8%E7%A6%8F-%E8%AE%B0%E5%BD%95%E9%A2%86%E8%AF%81%E7%9A%84%E4%B8%80%E5%A4%A9/"/><id>https://owovo.xyz/post/%E6%88%91%E4%BB%AC%E7%9A%84%E5%B0%8F%E5%B9%B8%E7%A6%8F-%E8%AE%B0%E5%BD%95%E9%A2%86%E8%AF%81%E7%9A%84%E4%B8%80%E5%A4%A9/</id><updated>2023-09-06T04:53:51+08:00</updated><published>2023-09-06T04:53:51+08:00</published><author><name>LIGT</name><uri>https://owovo.xyz/</uri></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">
 &lt;p&gt;领证啦！&lt;/p&gt;</summary><content type="html">
 &lt;p&gt;领证啦！&lt;/p&gt;
