@@ -1,4 +1,498 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>LIGT'S BLOG</title><link>https://owovo.xyz/</link><description>分享一些日常、没事无聊的瞎想、一些常用的工具等</description><generator>Hugo 0.158.0 https://gohugo.io/</generator><language>zh-CN</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Fri, 20 Mar 2026 03:20:29 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://owovo.xyz/rss.xml"/><item><title>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>LIGT'S BLOG</title><link>https://owovo.xyz/</link><description>分享一些日常、没事无聊的瞎想、一些常用的工具等</description><generator>Hugo 0.158.0 https://gohugo.io/</generator><language>zh-CN</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 22 Mar 2026 14:21:28 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://owovo.xyz/rss.xml"/><item><title>
+Impeccable.style 最新使用指南：21 个 skills 怎么安装、更新和上手</title><link>https://owovo.xyz/post/impeccable-style-21-skills-guide/</link><guid isPermaLink="true">https://owovo.xyz/post/impeccable-style-21-skills-guide/</guid><pubDate>Sun, 22 Mar 2026 17:00:00 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>
+&lt;p&gt;如果你以前看过一些关于 &lt;code&gt;Impeccable.style&lt;/code&gt; 的介绍，脑子里大概率还停留在“17 条命令”的版本。&lt;/p&gt;
+&lt;p&gt;但按我在 &lt;code&gt;2026-03-22&lt;/code&gt; 当天直接用官方 &lt;code&gt;skills&lt;/code&gt; CLI 拉取远端仓库后的结果来看，现在更准确的说法已经变成了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Impeccable.style&lt;/code&gt; 不是一个“给 AI 美化页面的 prompt 包”，而是一套可以全局安装、持续更新、按问题拆分职责的前端设计技能包；当前可安装集合里一共是 &lt;code&gt;21&lt;/code&gt; 个 skills。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这意味着你如果还按旧文章里的“17 条命令速记”去理解它，已经不太够了。现在更实用的理解方式应该是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;它是一套面向 AI coding tools 的设计工作流&lt;/li&gt;
+&lt;li&gt;它不仅负责“做漂亮”，还覆盖审计、统一、排版、布局、补强、适配、性能、系统化沉淀和高阶增强&lt;/li&gt;
+&lt;li&gt;它既可以像 slash command 一样被调用，也可以作为 skill 被代理主动使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这篇文章会按新版来重写，不再把它当成“17 条命令背诵表”，而是回答 5 个更实际的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;它现在到底是什么&lt;/li&gt;
+&lt;li&gt;怎么全局安装，怎么更新到最新&lt;/li&gt;
+&lt;li&gt;第一次上手时，最推荐怎么开始&lt;/li&gt;
+&lt;li&gt;21 个 skills 分别适合解决什么问题&lt;/li&gt;
+&lt;li&gt;如果你看到旧资料仍在写 17 条命令，应该以什么为准&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="一先用一句话理解impeccablestyle-现在是什么"&gt;一、先用一句话理解：Impeccable.style 现在是什么&lt;/h2&gt;
+&lt;p&gt;一句话版：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;它是一套给 AI coding agent 使用的前端设计技能系统，用来把“界面评估、结构调整、文案澄清、排版优化、适配补强、性能优化、气质增强和系统沉淀”拆成明确的可调用能力。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它的重点从来不只是“生成页面”，而是让 AI 在做前端时更像一个真正懂设计质量的人。&lt;/p&gt;
+&lt;p&gt;所以更准确的理解不是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;它不是一个只负责“美化”的插件&lt;/li&gt;
+&lt;li&gt;它不是一个只收集提示词的网站&lt;/li&gt;
+&lt;li&gt;它也不是只能靠手工一个个敲斜杠命令的命令表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一套可安装的 skills bundle&lt;/li&gt;
+&lt;li&gt;一套面向多个 AI coding tools 的统一设计能力&lt;/li&gt;
+&lt;li&gt;一条从“先判断问题”到“再下手修改”再到“最后打磨上线”的设计工作流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="二这次更新最重要的变化是什么"&gt;二、这次更新最重要的变化是什么&lt;/h2&gt;
+&lt;p&gt;如果你只想抓重点，可以先记这三条：&lt;/p&gt;
+&lt;h3 id="1-旧的17-条命令已经不够描述当前版本"&gt;1. 旧的“17 条命令”已经不够描述当前版本&lt;/h3&gt;
+&lt;p&gt;我在本机直接执行官方远端清单查询后，当前仓库可发现的是 &lt;code&gt;21&lt;/code&gt; 个 skills，而不是过去常见介绍里的 &lt;code&gt;17&lt;/code&gt; 个。&lt;/p&gt;
+&lt;p&gt;也就是说，如果你在一些旧页面、旧 cheatsheet 或旧文章里还看到“17 条命令”，可以把它理解成较早阶段的公开快照，而不是今天安装结果的完整列表。&lt;/p&gt;
+&lt;h3 id="2-当前版本补上了三个很实用的新方向"&gt;2. 当前版本补上了三个很实用的新方向&lt;/h3&gt;
+&lt;p&gt;这次最值得注意的是新增了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;：专门处理布局、间距、视觉节奏和层级&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;typeset&lt;/code&gt;：专门处理字体、字号、层级、行宽和可读性&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;overdrive&lt;/code&gt;：专门处理更激进、更有技术含量的界面增强&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这三个补位很关键，因为它们把以前很多容易混在一起的问题拆得更清楚了。&lt;/p&gt;
+&lt;p&gt;以前你可能会把“页面不够好看”一股脑塞给 &lt;code&gt;polish&lt;/code&gt; 或 &lt;code&gt;frontend-design&lt;/code&gt;。现在更好的做法是先分清：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;到底是布局问题，那就去找 &lt;code&gt;arrange&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;到底是排版问题，那就去找 &lt;code&gt;typeset&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;到底是想做超出常规的惊艳效果，那才是 &lt;code&gt;overdrive&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-更新方式比以前更清晰了"&gt;3. 更新方式比以前更清晰了&lt;/h3&gt;
+&lt;p&gt;现在最实用的流程不是“装一次就不管”，而是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全局安装&lt;/li&gt;
+&lt;li&gt;定期检查更新&lt;/li&gt;
+&lt;li&gt;有更新就直接升级&lt;/li&gt;
+&lt;li&gt;如果上游新增了 skill，再补装新增项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这比把它理解成一次性插件更接近它现在的实际使用方式。&lt;/p&gt;
+&lt;h2 id="三现在怎么全局安装检查更新和升级"&gt;三、现在怎么全局安装、检查更新和升级&lt;/h2&gt;
+&lt;p&gt;如果你准备从零开始，最省事的方式是直接全局安装整个技能包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills add pbakaus/impeccable -g --all -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这条命令的意思可以简单理解成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从官方仓库拉取 &lt;code&gt;pbakaus/impeccable&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;以全局方式安装&lt;/li&gt;
+&lt;li&gt;把这个仓库里的全部 skills 都装上&lt;/li&gt;
+&lt;li&gt;跳过交互确认&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你只想先装几个最常用的，也可以只安装指定 skills，例如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills add pbakaus/impeccable -g --skill teach-impeccable audit critique polish -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完之后，日常维护建议记住下面三条：&lt;/p&gt;
+&lt;h3 id="1-检查有没有新版本"&gt;1. 检查有没有新版本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills check
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这条命令会告诉你：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哪些已安装 skills 有更新&lt;/li&gt;
+&lt;li&gt;更新来自哪个源仓库&lt;/li&gt;
+&lt;li&gt;接下来应该执行什么更新命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-把已安装-skills-更新到最新"&gt;2. 把已安装 skills 更新到最新&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这条命令适合处理“我已经装过了，现在只想把现有内容刷新到最新”。&lt;/p&gt;
+&lt;h3 id="3-看看你全局到底装了什么"&gt;3. 看看你全局到底装了什么&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills ls -g
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果你想确认本机全局现在有哪些 skills、分别装到了哪里，用这条就够了。&lt;/p&gt;
+&lt;h2 id="四更新时还有一个容易忽略的点新增-skill-不一定会自动补上"&gt;四、更新时还有一个容易忽略的点：新增 skill 不一定会自动补上&lt;/h2&gt;
+&lt;p&gt;这是这次最值得提醒的一点。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npx skills update&lt;/code&gt; 的主要作用，是把你&lt;strong&gt;已经安装过的 skills&lt;/strong&gt; 刷新到最新版本。但如果上游仓库这次多了全新的 skill，而你之前本机根本没有装过，那你还需要再执行一次补装。&lt;/p&gt;
+&lt;p&gt;比如这次我实测到的新增项就是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;arrange
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;typeset
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;overdrive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;补装方式可以直接写成：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npx skills add pbakaus/impeccable -g --skill arrange typeset overdrive -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;所以更完整的维护思路是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先跑 &lt;code&gt;npx skills check&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再跑 &lt;code&gt;npx skills update&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果官方仓库出现了新的 skill，再单独补装这些新增项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="五装完之后怎么调用"&gt;五、装完之后怎么调用&lt;/h2&gt;
+&lt;p&gt;这套能力的调用方式，取决于你在用什么 AI 工具。&lt;/p&gt;
+&lt;p&gt;如果你的工具把 skill 暴露成 slash command，那常见写法就是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/critique
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/normalize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果你的工具不强调 slash command，而是强调让 agent 自动选 skill，也没关系。你可以直接在需求里说：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请用 &lt;code&gt;audit&lt;/code&gt; 看看这个页面的问题&lt;/li&gt;
+&lt;li&gt;请用 &lt;code&gt;typeset&lt;/code&gt; 优化这段内容页的排版&lt;/li&gt;
+&lt;li&gt;请用 &lt;code&gt;arrange&lt;/code&gt; 重新整理这个页面的布局节奏&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;也就是说，你不必执着于“它到底算 command 还是 skill”。实操里，把它理解成“可以被明确点名使用的能力模块”就行。&lt;/p&gt;
+&lt;h2 id="六新手第一次上手最推荐怎么开始"&gt;六、新手第一次上手，最推荐怎么开始&lt;/h2&gt;
+&lt;p&gt;如果你第一次用，不建议一上来把所有 skills 都试一遍。最稳的起步路径，通常是下面这条：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/teach-impeccable
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit 或 /critique
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/arrange 或 /typeset 或 /normalize 或 /distill 或 /clarify
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/adapt /harden /optimize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;为什么这样排？&lt;/p&gt;
+&lt;h3 id="第一步teach-impeccable"&gt;第一步：&lt;code&gt;teach-impeccable&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;先把项目设计上下文讲清楚。&lt;/p&gt;
+&lt;p&gt;它更像是在做一件基础但很重要的事：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这个产品是给谁用的&lt;/li&gt;
+&lt;li&gt;想呈现什么气质&lt;/li&gt;
+&lt;li&gt;哪些东西是可以做的&lt;/li&gt;
+&lt;li&gt;哪些风格是明确不要的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这一步做完之后，后面很多改动会更稳，因为 AI 不用每次都从零猜你的审美和边界。&lt;/p&gt;
+&lt;h3 id="第二步audit-或-critique"&gt;第二步：&lt;code&gt;audit&lt;/code&gt; 或 &lt;code&gt;critique&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;先判断问题，而不是直接动手。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你更关心可访问性、性能、响应式、主题一致性，用 &lt;code&gt;audit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果你更关心视觉层级、信息架构、整体体验和情绪表达，用 &lt;code&gt;critique&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;简单说：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;audit&lt;/code&gt; 更像全面体检&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;critique&lt;/code&gt; 更像设计评审&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="第三步按症状选对应-skill"&gt;第三步：按症状选对应 skill&lt;/h3&gt;
+&lt;p&gt;这是新版最值得利用的地方。&lt;/p&gt;
+&lt;p&gt;不要再把所有问题都塞给一个总命令，而是先分清症状：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;布局松散、节奏混乱、层级不清：&lt;code&gt;arrange&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;字体普通、层级模糊、阅读不顺：&lt;code&gt;typeset&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;页面不统一、不像一个系统：&lt;code&gt;normalize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;页面太满、太杂、抓不住重点：&lt;code&gt;distill&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;文案、标签、说明、错误提示不清楚：&lt;code&gt;clarify&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="第四步交付前补强"&gt;第四步：交付前补强&lt;/h3&gt;
+&lt;p&gt;当页面方向已经差不多时，再去看：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多端是不是成立：&lt;code&gt;adapt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;边界情况是不是扛得住：&lt;code&gt;harden&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;加载和动画是不是够顺：&lt;code&gt;optimize&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="第五步最后打磨"&gt;第五步：最后打磨&lt;/h3&gt;
+&lt;p&gt;方向、结构、稳定性都差不多以后，再上 &lt;code&gt;polish&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;polish&lt;/code&gt; 更适合处理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对齐&lt;/li&gt;
+&lt;li&gt;间距&lt;/li&gt;
+&lt;li&gt;细节一致性&lt;/li&gt;
+&lt;li&gt;质感上的最后一轮提升&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它适合收尾，不适合代替前面的诊断和结构调整。&lt;/p&gt;
+&lt;h2 id="七21-个-skills-现在分别适合解决什么问题"&gt;七、21 个 skills 现在分别适合解决什么问题&lt;/h2&gt;
+&lt;p&gt;下面这份表可以直接当成新版速查：&lt;/p&gt;
+&lt;div class="table-container"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;th&gt;Skill&lt;/th&gt;
+&lt;th&gt;适合什么时候用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;设计上下文&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;teach-impeccable&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;第一次接手项目，先把设计背景、品牌气质和边界讲清楚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;总入口&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;frontend-design&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;要直接构建一个高质量前端页面、组件或完整界面时使用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;审计诊断&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;audit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;需要从可访问性、性能、主题一致性、响应式等维度做全面体检&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;审计诊断&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;critique&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;想知道页面为什么“看起来不够好”，从 UX 和视觉层级角度评估&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;布局结构&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面布局单调、间距混乱、节奏弱、结构不清晰&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;排版文字&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;typeset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字体选择普通、字号层级不清、阅读体验差&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;系统一致性&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;normalize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面能用，但新旧区域不像一个产品里做出来的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;减法提炼&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;distill&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;信息太满、视觉太杂、复杂性过高，需要做减法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;文案表达&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;clarify&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;标签、说明、按钮文案、错误提示、微文案说得不清楚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;适配场景&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;adapt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;桌面端还行，但换设备、屏幕或上下文就变形&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;鲁棒补强&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;harden&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;错误态、文本溢出、多语言、边界情况不够稳&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;性能优化&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;optimize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;图片、动画、渲染、加载速度、包体积还不够好&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;色彩表达&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;colorize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面太灰、太白、太平，没有策略性的色彩层次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;动效反馈&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;animate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面太“死”，缺少反馈、节奏和状态变化&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;气质增强&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;delight&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面已经能用，但还缺一点温度、记忆点和惊喜&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;强化表达&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;bolder&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面太保守、太安全、缺少冲击力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;降噪收敛&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;quieter&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;页面太吵、太硬、强调过多，需要降低攻击性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设计系统沉淀&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;extract&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;已经做了很多页面，想开始提炼组件、tokens 和模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;首次体验&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;onboard&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;新用户上来不知道干什么，空状态和 onboarding 不够清楚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上线前精修&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;polish&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;方向没问题，但还差最后一轮细节打磨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;高阶增强&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;overdrive&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;想做真正超出常规的界面体验，比如高级转场、重交互或技术型惊艳效果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+&lt;h2 id="八这三个新增-skill-为什么值得单独认识"&gt;八、这三个新增 skill 为什么值得单独认识&lt;/h2&gt;
+&lt;h3 id="1-arrange-让布局问题终于能单独处理"&gt;1. &lt;code&gt;arrange&lt;/code&gt; 让“布局问题”终于能单独处理&lt;/h3&gt;
+&lt;p&gt;很多页面看起来不对劲，根子不在颜色，也不在组件长得丑，而是在：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;间距没有节奏&lt;/li&gt;
+&lt;li&gt;内容分组不清&lt;/li&gt;
+&lt;li&gt;布局过于平均&lt;/li&gt;
+&lt;li&gt;视觉重心不明确&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以前这些问题很容易被混进 &lt;code&gt;normalize&lt;/code&gt; 或 &lt;code&gt;polish&lt;/code&gt;。现在 &lt;code&gt;arrange&lt;/code&gt; 把这块单独拿出来，判断会更准，修改也更聚焦。&lt;/p&gt;
+&lt;h3 id="2-typeset-把排版不好看拆成了真正可处理的问题"&gt;2. &lt;code&gt;typeset&lt;/code&gt; 把“排版不好看”拆成了真正可处理的问题&lt;/h3&gt;
+&lt;p&gt;很多中文和英文混排页面，并不是设计太差，而是排版太默认：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字体没选好&lt;/li&gt;
+&lt;li&gt;标题和正文层级太近&lt;/li&gt;
+&lt;li&gt;行宽和行高不舒服&lt;/li&gt;
+&lt;li&gt;重点信息没有被排版结构撑起来&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;typeset&lt;/code&gt; 的价值就在这里。它不是让文字“更花”，而是让文字更清楚、更顺、更有秩序。&lt;/p&gt;
+&lt;h3 id="3-overdrive-只适合在基础质量已经稳住之后用"&gt;3. &lt;code&gt;overdrive&lt;/code&gt; 只适合在基础质量已经稳住之后用&lt;/h3&gt;
+&lt;p&gt;这个 skill 很容易让人误会成“酷炫特效模式”，但它真正适合的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你已经清楚项目定位&lt;/li&gt;
+&lt;li&gt;你知道自己为什么要做更强的表现&lt;/li&gt;
+&lt;li&gt;你不是为了热闹，而是为了让体验明显超过用户预期&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果页面连结构、适配、排版、鲁棒性都还没处理好，就先别急着上 &lt;code&gt;overdrive&lt;/code&gt;。它更像高阶档，而不是默认起手式。&lt;/p&gt;
+&lt;h2 id="九如果你今天才开始用我建议按这条路线走"&gt;九、如果你今天才开始用，我建议按这条路线走&lt;/h2&gt;
+&lt;p&gt;先不要试图背 21 个名字。更有效的做法，是先记住下面这条主线：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/teach-impeccable
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/audit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/arrange
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/typeset
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/normalize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/harden
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/optimize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/polish
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果你更偏体验审美，那就把 &lt;code&gt;audit&lt;/code&gt; 换成 &lt;code&gt;critique&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果你发现问题主要是信息太多太乱，就把 &lt;code&gt;arrange&lt;/code&gt; 或 &lt;code&gt;normalize&lt;/code&gt; 换成 &lt;code&gt;distill&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果问题主要出在文字表达，就把中间一段换成：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/clarify
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/typeset
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;等你已经能稳定地把基础质量做扎实了，再考虑：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/colorize
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/animate
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/delight
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bolder
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/quieter
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/overdrive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="十如果你看到别的文章还在写17-条命令该信哪个"&gt;十、如果你看到别的文章还在写“17 条命令”，该信哪个&lt;/h2&gt;
+&lt;p&gt;优先信下面这个顺序：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;你今天实际从官方仓库安装出来的 skill 列表&lt;/li&gt;
+&lt;li&gt;官方仓库本身&lt;/li&gt;
+&lt;li&gt;官网首页和 cheatsheet&lt;/li&gt;
+&lt;li&gt;其他人写的教程，包括这篇文章的旧版本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;原因很简单：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官网页面有时会比仓库更新慢&lt;/li&gt;
+&lt;li&gt;第三方文章经常停留在旧快照&lt;/li&gt;
+&lt;li&gt;但你本机当天直接拉下来的安装结果，才最接近“现在到底有什么”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以如果你今天仍然看到有人说“Impeccable.style 就是 17 条命令”，更稳妥的表述应该改成：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;早期公开介绍里常见 17 条命令的说法，但按当前官方技能包的实际安装结果，已经扩展为 21 个 skills。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="十一总结"&gt;十一、总结&lt;/h2&gt;
+&lt;p&gt;如果只用一句话总结现在的 &lt;code&gt;Impeccable.style&lt;/code&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;它已经不是一个“教 AI 把页面做漂亮”的小插件，而是一套可以全局安装、持续更新、按问题拆分职责的前端设计技能系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对新手最重要的，不是背名字，而是跑顺这条逻辑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先建立设计上下文：&lt;code&gt;teach-impeccable&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再做问题诊断：&lt;code&gt;audit&lt;/code&gt; 或 &lt;code&gt;critique&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再按症状下手：&lt;code&gt;arrange&lt;/code&gt;、&lt;code&gt;typeset&lt;/code&gt;、&lt;code&gt;normalize&lt;/code&gt;、&lt;code&gt;distill&lt;/code&gt;、&lt;code&gt;clarify&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;再做交付补强：&lt;code&gt;adapt&lt;/code&gt;、&lt;code&gt;harden&lt;/code&gt;、&lt;code&gt;optimize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;最后收尾：&lt;code&gt;polish&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;真要上强度时，再考虑 &lt;code&gt;overdrive&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样用，才更接近它现在这套技能包真正的价值。&lt;/p&gt;
+&lt;h2 id="参考链接"&gt;参考链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;官网首页：&lt;a href="https://impeccable.style/"&gt;https://impeccable.style/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方速查页：&lt;a href="https://impeccable.style/cheatsheet"&gt;https://impeccable.style/cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方仓库：&lt;a href="https://github.com/pbakaus/impeccable"&gt;https://github.com/pbakaus/impeccable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;skills CLI 目录页：&lt;a href="https://skills.sh/pbakaus/impeccable"&gt;https://skills.sh/pbakaus/impeccable&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说明：本文基于 &lt;code&gt;2026-03-22&lt;/code&gt; 当天对官方远端技能清单、&lt;code&gt;npx skills check&lt;/code&gt;、&lt;code&gt;npx skills update&lt;/code&gt;、&lt;code&gt;npx skills add pbakaus/impeccable -g --list&lt;/code&gt; 以及实际全局安装结果整理。涉及“当前共有 21 个 skills”“新增 &lt;code&gt;arrange&lt;/code&gt; / &lt;code&gt;typeset&lt;/code&gt; / &lt;code&gt;overdrive&lt;/code&gt;”等表述，均以当天实际安装结果为准。&lt;/p&gt;
+&lt;/blockquote&gt;</description><category domain="https://owovo.xyz/categories/%E5%B7%A5%E5%85%B7/">工具</category><category domain="https://owovo.xyz/tags/AI/">AI</category><category domain="https://owovo.xyz/tags/%E8%AE%BE%E8%AE%A1/">设计</category><category domain="https://owovo.xyz/tags/%E5%B7%A5%E5%85%B7/">工具</category><category domain="https://owovo.xyz/tags/Impeccable.style/">Impeccable.style</category><category domain="https://owovo.xyz/tags/Claude-Code/">Claude Code</category><category domain="https://owovo.xyz/tags/Codex/">Codex</category></item><item><title>
 Impeccable.style 使用教程：新手怎么上手 17 个官方命令</title><link>https://owovo.xyz/post/Impeccable.style-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E6%96%B0%E6%89%8B%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B-17-%E4%B8%AA%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4/</link><guid isPermaLink="true">https://owovo.xyz/post/Impeccable.style-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E6%96%B0%E6%89%8B%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B-17-%E4%B8%AA%E5%AE%98%E6%96%B9%E5%91%BD%E4%BB%A4/</guid><pubDate>Sun, 08 Mar 2026 17:30:00 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>
 &lt;p&gt;如果你第一次接触 &lt;code&gt;Impeccable.style&lt;/code&gt;，很容易把它理解成“又一个帮 AI 把页面做漂亮的提示词包”。&lt;/p&gt;
 &lt;p&gt;但从官网首页和 cheatsheet 的写法来看，它更准确的定位其实是：&lt;strong&gt;一套给 AI coding tools 使用的前端设计 skills / commands&lt;/strong&gt;。它不是只给你几段 prompt，而是把“先审计界面、再统一设计、再补强适配与鲁棒性、最后做增强和精修”这些动作，拆成了 17 个可以直接调用的命令。&lt;/p&gt;
@@ -1374,58 +1868,4 @@ Non-authoritative answer:
 &lt;p&gt;然后告诉自己，挨一挨就过去了，然后，再挨一挨，就忘了。&lt;/p&gt;
 &lt;h2 id="二心不动则不痛"&gt;二、心不动，则不痛。&lt;/h2&gt;
 &lt;p&gt;10 年的感情不可能从来没有心动过，不可能的。也许分手之前已经经历了太多次歇斯底里，伤够了，分开是一种解脱。耐心和时间也是消磨爱意的武器，期待没了，爱情也就没了。&lt;/p&gt;
-&lt;p&gt;然后一别两宽，各生欢喜。&lt;/p&gt;</description><category domain="https://owovo.xyz/categories/%E6%83%85%E6%84%9F/">情感</category><category domain="https://owovo.xyz/tags/%E6%83%85%E6%84%9F/">情感</category></item><item><title>
-批量去除文件名中的空格、批量重命名</title><link>https://owovo.xyz/post/%E6%89%B9%E9%87%8F%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E7%A9%BA%E6%A0%BC%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/</link><guid isPermaLink="true">https://owovo.xyz/post/%E6%89%B9%E9%87%8F%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E7%A9%BA%E6%A0%BC%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/</guid><pubDate>Thu, 10 Oct 2019 08:41:03 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>
-&lt;p&gt;本次介绍一下批量去除文件名中的空格、批量重命名的方法。&lt;/p&gt;
-&lt;h2 id="一批量去除文件名中的空格"&gt;一、批量去除文件名中的空格&lt;/h2&gt;
-&lt;p&gt;把以下代码保存成.bat 批处理文件，放到需要批量重命名的文件内，运行即可。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;span class="lnt"&gt;8
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;setlocal&lt;/span&gt; &lt;span class="n"&gt;enabledelayedexpansion&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;delims=&amp;#34;&lt;/span&gt; &lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="nf"&gt;in&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;foo=%%~nxi&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;=!&lt;/span&gt;&lt;span class="nl"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;=!&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;=!&lt;/span&gt;&lt;span class="nl"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;=!&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;%%~fi&amp;#34;&lt;/span&gt; &lt;span class="s"&gt;&amp;#34;!foo!&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;exit&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="二批量重命名"&gt;二、批量重命名&lt;/h2&gt;
-&lt;p&gt;单个用 ren 命令，多个分行放到一个文本文档里，如：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="nf"&gt;demaxiya&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="n"&gt;demaxiya01&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="nf"&gt;demaxiya&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="n"&gt;demaxiya02&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;ren&lt;/span&gt; &lt;span class="nf"&gt;demaxiya&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt; &lt;span class="n"&gt;demaxiya03&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;保存在文件所在文件夹里，改为.bat 后缀，运行即可。&lt;/p&gt;
-&lt;p&gt;那么，问题来了，如果需重命名的文件较多，如何把众多文件名及新文件名放到文本文档里呢？一个个复制岂不累死？不用，看方法：&lt;/p&gt;
-&lt;p&gt;运行 CMD 调出 DOS 窗口，先用 “CD C:\XXX&amp;quot;定位到文件所在文件夹 XXX，再输入命令 “dir /b&amp;gt;rename.xls&amp;quot;，就会在 XXX 文件夹里生成一个 rename.xls 文档，里面列出了该文件夹中的所有文件名。然后，在其前面插入一列用 ren 填充，后面一列一一对应输入新文件名（可以用自动填充），最后这三列复制粘贴到文本文档里，就可以了。&lt;/p&gt;
-&lt;h2 id="三提取全部文件名"&gt;三、提取全部文件名&lt;/h2&gt;
-&lt;p&gt;把以下代码保存成.bat 批处理文件，放到需要批量重命名的文件内，运行即可。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;div class="table-container"&gt;&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;DIR&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;LIST&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TXT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category domain="https://owovo.xyz/categories/%E8%84%9A%E6%9C%AC/">脚本</category><category domain="https://owovo.xyz/tags/Windows/">Windows</category><category domain="https://owovo.xyz/tags/%E8%84%9A%E6%9C%AC/">脚本</category></item></channel></rss>
+&lt;p&gt;然后一别两宽，各生欢喜。&lt;/p&gt;</description><category domain="https://owovo.xyz/categories/%E6%83%85%E6%84%9F/">情感</category><category domain="https://owovo.xyz/tags/%E6%83%85%E6%84%9F/">情感</category></item></channel></rss>
